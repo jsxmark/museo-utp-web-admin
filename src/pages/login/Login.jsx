@@ -2,7 +2,7 @@ import '../../styles/login.css';
 import '../../styles/normalize.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom"
-import axios from 'axios';
+import { AuthenticateService } from "../../services/authenticate.service";
 
 function Login() {
 
@@ -12,18 +12,15 @@ function Login() {
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
         if (email && password) {
-            axios.post('http://localhost:3000/user', { email, password })
-          .then((response) => {
-              console.log(response.data)
-              navigate("/dashboard");
-              window.location.reload();
-          })
-          .catch((error) => {
-              console.error(error);
-              setError('Error al iniciar sesión. Por favor, verifica tus credenciales.');
-          });
+            AuthenticateService.login(email, password)
+            .then(
+                () => {
+                    navigate("/dashboard");
+                    window.location.reload();
+                }
+            )
         } else {
             setError('Por favor, ingresa tu usuario y contraseña.');
         }
