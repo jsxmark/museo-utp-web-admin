@@ -3,13 +3,11 @@ import axios from "axios";
 const BASE_URL = "http://localhost:3000/";
 
 const login = async (email, password) => {
-  return await axios.post(BASE_URL+'/user', { email, password })
-  .then((response) => {
-      console.log(response.data)
-  })
-  .catch((error) => {
-      console.error(error);
-  });
+    try {
+        return (await axios.post(BASE_URL + 'user/', {email, password})).data
+    } catch (error) {
+        throw new Error('Error en la solicitud de inicio de sesión: '+error);
+    }
 };
 
 export const AuthenticateService = {

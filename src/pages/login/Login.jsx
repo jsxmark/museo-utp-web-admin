@@ -15,16 +15,17 @@ function Login() {
         event.preventDefault()
         if (email && password) {
             AuthenticateService.login(email, password)
-            .then(
-                () => {
-                    navigate("/dashboard");
-                    window.location.reload();
-                }
-            )
+            .then(() => {
+                navigate("/dashboard")
+                window.location.reload()
+            })
+            .catch(() => {
+                setError('Error en la solicitud de inicio de sesión. Por favor, inténtalo nuevamente.')
+            })
         } else {
-            setError('Por favor, ingresa tu usuario y contraseña.');
+            setError('Por favor, ingresa tu usuario y contraseña.')
         }
-    };
+    }
 
     return (
         <div className="main-container">
