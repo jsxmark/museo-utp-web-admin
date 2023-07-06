@@ -1,7 +1,7 @@
 import '../../styles/login.css';
 import '../../styles/normalize.css';
 import React, { useState } from 'react';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 
 function Login() {
@@ -9,13 +9,16 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (email && password) {
-            axios.post('https://tu-api.com/login', { email, password })
+            axios.post('http://localhost:3000/user', { email, password })
           .then((response) => {
-              console.log(response.data);
+              console.log(response.data)
+              navigate("/dashboard");
+              window.location.reload();
           })
           .catch((error) => {
               console.error(error);
@@ -31,12 +34,12 @@ function Login() {
             <div className="left"></div>
             <div className="right">
                 <div className="right-container-form">
+                    {error && <div className= 'error-title'>{error}</div>}
                     <form onSubmit={handleSubmit}>
-                        {error && <div>{error}</div>}
                         <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
-                        <input type="email" id="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
-                        <input type="password" id="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
+                        <input type="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
+                        <input type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
                         <p className='signup-prompt'><Link to={"/register"} >¿Aún no tienes una cuenta?</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>
                     </form>
