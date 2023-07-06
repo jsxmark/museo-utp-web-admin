@@ -21,7 +21,11 @@ function Login() {
             })
             .catch(() => {
                 setError('Error en la solicitud de inicio de sesión. Por favor, inténtalo nuevamente.')
-            })
+            }).finally(() => {
+                setTimeout(() => {
+                    setError('')
+                }, 3000);
+            });
         } else {
             setError('Por favor, ingresa tu usuario y contraseña.')
         }
