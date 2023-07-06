@@ -4,28 +4,28 @@ import '../../styles/normalize.css'
 function Dashboard(){
     return(
         <div className="container">
-            <nav>
+            <nav className='nav-sidebar'>
                 <ul>
                     <li><a href="#" class="logo">
-                        <span className="nav-item">DashBoard</span>
+                        <img src="https://cdn.discordapp.com/attachments/1121914239880273930/1124004394711658516/fotor-ai-20230629105039.jpg" alt="" />
                     </a></li>
-                    <li><a href="#">
+                    <li className='op'><a href="#">
                         <i className="fas fa-home"></i>
                         <span className="nav-item">Inicio</span>
                     </a></li>
-                    <li><a href="#">
+                    <li className='op'><a href="#">
                         <i className="fas fa-user"></i>
                         <span className="nav-item">Perfil</span>
                     </a></li>
-                    <li><a href="">
+                    <li className='op'><a href="">
                         <i className="fa-solid fa-plus"></i>
                         <span className="nav-item">Añadir Artículo</span>
                     </a></li>
-                    <li><a href="">
+                    <li className='op'><a href="">
                         <i className="fa-solid fa-graduation-cap"></i>
                         <span className="nav-item">Añadir Estudiante</span>
                     </a></li>
-                    <li><a href="" class="logout">
+                    <li className='op'><a href="" class="logout">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
                     </a></li>
@@ -69,22 +69,22 @@ function Dashboard(){
 
                         <div className="course">
                             <div className="box">
-                                <h3>HTML</h3>
-                                <p>80% - progress</p>
-                                <button>continue</button>
-                                <i className="fab fa-html5 html"></i>
+                                <h3>Computadora Prehistórica</h3>
+                                <button>Editar</button>
+                                <button className='btn-edit'>Eliminar</button>
+                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                             <div className="box">
-                                <h3>CSS</h3>
-                                <p>50% - progress</p>
-                                <button>continue</button>
-                                <i className="fab fa-css3-alt css"></i>
+                                <h3>Computadora Prehistórica</h3>
+                                <button>Editar</button>
+                                <button className='btn-edit'>Eliminar</button>
+                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                             <div className="box">
-                                <h3>JavaScript</h3>
-                                <p>30% - progress</p>
-                                <button>continue</button>
-                                <i className="fab fa-js-square js"></i>
+                                <h3>Computadora Prehistórica</h3>
+                                <button>Editar</button>
+                                <button className='btn-edit'>Eliminar</button>
+                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                         </div>
                     </div>
