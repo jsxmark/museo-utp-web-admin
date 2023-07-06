@@ -173,6 +173,7 @@ nav .fas, .fa-solid{
     border-radius: 10px;
     background: rgb(235, 233, 233);
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    
 }
 .box p{
     font-size: 12px;
@@ -202,7 +203,6 @@ nav .fas, .fa-solid{
     width: 15rem;
     border-radius: 5px;
     float: right;
-    
 }
 
 .html{
