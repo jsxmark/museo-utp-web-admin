@@ -29,7 +29,7 @@ html{
 /**left container**/
 .reg-left {
     width: 65%;
-    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.5)),url("../assets/images/alexander.jpg");
+    background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.5)),url("../assets/images/alexander.webp");
     min-height: 100%;
     background-position: center center;
     background-repeat: no-repeat;
