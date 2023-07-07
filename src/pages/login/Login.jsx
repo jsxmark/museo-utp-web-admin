@@ -6,15 +6,15 @@ import { AuthenticateService } from "../../services/authenticate.service";
 
 function Login() {
 
-    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        if (email && password) {
-            AuthenticateService.login(email, password)
+        if (username && password) {
+            AuthenticateService.login(username, password)
             .then(() => {
                 navigate("/dashboard")
                 window.location.reload()
@@ -40,7 +40,7 @@ function Login() {
                     <form onSubmit={handleSubmit}>
                         <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
-                        <input type="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
+                        <input type="email" placeholder='Nombre de Usuario' value={username} onChange={(event) => setUsername(event.target.value)}/>
                         <input type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
                         <p className='signup-prompt'><Link to={"/register"} >¿Aún no tienes una cuenta?</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>
