@@ -108,6 +108,16 @@ nav .fas, .fa-solid{
     padding: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
+
+.card{
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
 .main-skills .card h3{
     margin: 10px;
     text-transform: capitalize;
@@ -172,8 +182,12 @@ nav .fas, .fa-solid{
     margin: 10px;
     border-radius: 10px;
     background: rgb(235, 233, 233);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);  
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+.box:hover{
+    transform: scale(1.03);
 }
 .box p{
     font-size: 12px;
