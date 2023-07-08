@@ -33,15 +33,27 @@ function Login() {
 
     return (
         <div className="main-container">
-            <div className="left"></div>
+            <div className="left">
+            <div className="right-container-form-responsive flex-form">
+                    {error && <div className= 'error-title'>{error}</div>}
+                    <form className='login-form'onSubmit={handleSubmit}>
+                        <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
+                        <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
+                        <input className='log-input' type="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
+                        <input className='log-input' type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
+                        <p className='signup-prompt'><Link to={"/register"} >¿Aún no tienes una cuenta?</Link></p>
+                        <button className='btn-login' type='submit'>Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
             <div className="right">
                 <div className="right-container-form">
                     {error && <div className= 'error-title'>{error}</div>}
-                    <form onSubmit={handleSubmit}>
+                    <form className='login-form'onSubmit={handleSubmit}>
                         <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
-                        <input type="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
-                        <input type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
+                        <input className='log-input' type="email" placeholder='Correo electrónico' value={email} onChange={(event) => setEmail(event.target.value)}/>
+                        <input className='log-input' type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
                         <p className='signup-prompt'><Link to={"/register"} >¿Aún no tienes una cuenta?</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>
                     </form>

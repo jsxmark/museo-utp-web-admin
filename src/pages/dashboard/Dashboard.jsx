@@ -22,15 +22,21 @@ function Dashboard(){
                         <span className="nav-item">Añadir Artículo</span>
                     </a></li>
                     <li className='op'><a href="">
+                    <i class="fa-solid fa-window-restore"></i>
+                        <span className="nav-item">Añadir Categoría</span>
+                    </a></li>
+                    <li className='op'><a href="">
                         <i className="fa-solid fa-graduation-cap"></i>
                         <span className="nav-item">Añadir Estudiante</span>
                     </a></li>
+
                     <li className='op'><a href="" class="logout">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
                     </a></li>
                 </ul>
             </nav>
+            
             <section className="main">
                 <div className="main-top">
                     <h1>Skills</h1>
