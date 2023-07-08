@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "https://c5e3-190-219-223-152.ngrok-free.app/";
 
-const login = async (email, password) => {
+const login = async (username, password) => {
     try {
-        return (await axios.post(BASE_URL + 'user/', {email, password})).data
+        return (await axios.post(BASE_URL + 'usuario/', {nombre_usuario: username, contrasena: password, rol: 'admin'})).data
     } catch (error) {
         throw new Error('Error en la solicitud de inicio de sesión: '+error);
     }
