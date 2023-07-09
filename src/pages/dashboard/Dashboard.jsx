@@ -76,20 +76,20 @@ function Dashboard(){
                         <div className="course">
                             <div className="box">
                                 <h3>Computadora Prehistórica</h3>
-                                <button>Editar</button>
-                                <button className='btn-edit'>Eliminar</button>
+                                <button className='btn-edit'>Editar</button>
+                                <button className='btn-delete'>Eliminar</button>
                                 <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                             <div className="box">
                                 <h3>Computadora Prehistórica</h3>
-                                <button>Editar</button>
-                                <button className='btn-edit'>Eliminar</button>
+                                <button className='btn-edit'>Editar</button>
+                                <button className='btn-delete'>Eliminar</button>
                                 <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                             <div className="box">
                                 <h3>Computadora Prehistórica</h3>
-                                <button>Editar</button>
-                                <button className='btn-edit'>Eliminar</button>
+                                <button className='btn-edit'>Editar</button>
+                                <button className='btn-delete'>Eliminar</button>
                                 <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
                             </div>
                         </div>
