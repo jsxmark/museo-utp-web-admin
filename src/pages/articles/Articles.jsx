@@ -118,8 +118,8 @@ function Articles() {
     }
 
     return (
-        <div className="app-container">
-            <h1 className="app-titulo">Lista de Articulos</h1>
+        <div className="article-body">
+            <h1>Lista de Articulos</h1>
             <form onSubmit={handleEditarSubmit}>
                 <table>
                     <thead>
