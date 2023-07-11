@@ -40,7 +40,7 @@
   }
 
   /* Estilos para las acciones */
-  button {
+  .article-button {
       padding: 4px 6px;
       margin: 3px 5px;
       background-color: #007bff;
@@ -52,20 +52,20 @@
       justify-self: center;
   }
 
-  button:hover {
+  .article-button:hover {
       background-color: #0056b3;
   }
 
-  button.delete-button {
+  .article-button.delete-button {
       background-color: #dc3545;
   }
 
-  button.delete-button:hover {
+  .article-button.delete-button:hover {
       background-color: #c82333;
   }
 
   /* Estilos para los formularios */
-  input[type="text"],
+  .article-input[type="text"],
   textarea {
       background-color: rgba(255, 255, 255, 0.2);
       color: #ddd;
@@ -75,7 +75,7 @@
       margin: 5px;
   }
 
-  input[type="text"]:focus,
+  .article-input[type="text"]:focus,
   textarea:focus {
       background-color: rgba(255, 255, 255, 0.4);
   }
