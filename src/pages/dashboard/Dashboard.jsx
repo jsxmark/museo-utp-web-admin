@@ -1,5 +1,7 @@
 import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
+import titi from '../../assets/images/titi.png'
+import compu from '../../assets/images/compu_prehistorica.jpg'
 
 function Dashboard(){
     return(
@@ -7,7 +9,7 @@ function Dashboard(){
             <nav className='nav-sidebar'>
                 <ul>
                     <li><a href="#" class="logo">
-                        <img src="https://cdn.discordapp.com/attachments/1121914239880273930/1124004394711658516/fotor-ai-20230629105039.jpg" alt="" />
+                        <img src= {titi} alt="" />
                     </a></li>
                     <li className='op'><a href="#">
                         <i className="fas fa-home"></i>
@@ -78,19 +80,19 @@ function Dashboard(){
                                 <h3>Computadora Prehistórica</h3>
                                 <button className='btn-edit'>Editar</button>
                                 <button className='btn-delete'>Eliminar</button>
-                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
+                                <img src={compu} alt="" />
                             </div>
                             <div className="box">
                                 <h3>Computadora Prehistórica</h3>
                                 <button className='btn-edit'>Editar</button>
                                 <button className='btn-delete'>Eliminar</button>
-                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
+                                <img src={compu} alt="" />
                             </div>
                             <div className="box">
                                 <h3>Computadora Prehistórica</h3>
                                 <button className='btn-edit'>Editar</button>
                                 <button className='btn-delete'>Eliminar</button>
-                                <img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/14061799/image/8fc8f984869935deff0264857dedaf07" alt="" />
+                                <img src={compu} alt=""/>
                             </div>
                         </div>
                     </div>

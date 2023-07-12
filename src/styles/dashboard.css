@@ -152,8 +152,6 @@ nav .fas, .fa-solid{
     color: #fff;
 }
 .course-box{
-    width: 100%;
-    height: 300px;
     padding: 10px 10px 30px 10px;
     margin-top: 10px;
     background: rgba(255, 255, 255, 0.08);
@@ -208,9 +206,6 @@ nav .fas, .fa-solid{
     margin-left: 1rem;
     background: #b61a1a;
 }
-.box button:hover{
-    background: rgba(0, 0, 0, 0.842);
-}
 .box i{
     font-size: 7rem;
     float: right;
@@ -231,4 +226,43 @@ nav .fas, .fa-solid{
 .js{
     color: rgb(28, 98, 179);
 }
-  
+
+@media (max-width: 1065px){
+
+    .course{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .box h3{
+        text-align: center;
+        order: 1;
+    }
+    .box img{
+        margin-top: 1rem;
+        order: 2;
+    }
+    .box .btn-edit{
+        width: 50%;
+        order: 3; 
+        margin-top: 1rem; 
+    }
+    .box .btn-delete{
+        width: 50%;
+        order: 4; 
+        margin-top: 1rem; 
+        margin-left: 0;
+    }
+    
+} 
+
+   
