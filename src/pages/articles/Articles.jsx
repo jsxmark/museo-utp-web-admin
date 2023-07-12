@@ -118,8 +118,8 @@ function Articles() {
     }
 
     return (
-        <div className="app-container">
-            <h1 className="app-titulo">Lista de Articulos</h1>
+        <div className="article-body">
+            <h1>Lista de Articulos</h1>
             <form onSubmit={handleEditarSubmit}>
                 <table>
                     <thead>
@@ -155,21 +155,24 @@ function Articles() {
             <h2>Agregar Objeto</h2>
 
             <form onSubmit={handleFromSubmit}>
-                <input 
+                <input
+                    className="article-input"
                     type="text" 
                     name="nombre"
                     required
                     placeholder="Ingrese Nombre..."
                     onChange={handleFormChange}
                 />
-                <input 
+                <input
+                    className="article-input"
                     type="text" 
                     name="ubicacion"
                     required
                     placeholder="Se encuentra en..."
                     onChange={handleFormChange}
                 />
-                <input 
+                <input
+                    className="article-input"
                     type="text" 
                     name="categoria"
                     required
@@ -177,20 +180,22 @@ function Articles() {
                     onChange={handleFormChange}
                 />
                 <input
+                    className="article-input"
                     type="text" 
                     name="dueno"
                     required
                     placeholder="Pertenece a...?"
                     onChange={handleFormChange}
                 />
-                <input 
+                <input
+                    className="article-input"
                     type="text" 
                     name="descripcion"
                     required
                     placeholder="Descripcion..."
                     onChange={handleFormChange}
                 />
-                <button type="submit">Agregar</button>
+                <button className="article-button" type="submit">Agregar</button>
             </form>
         </div>
         );
