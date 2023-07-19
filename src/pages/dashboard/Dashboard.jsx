@@ -1,5 +1,9 @@
 import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
+import titi from '../../assets/images/titi.png'
+import compu from '../../assets/images/compu_prehistorica.jpg'
+import React, { useEffect } from 'react';
+import hamburguesa from '../../utils/quarter-pound.js'
 
 function Dashboard(){
 
