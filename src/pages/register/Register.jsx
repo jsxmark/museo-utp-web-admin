@@ -1,8 +1,32 @@
 import '../../styles/register.css';
 import '../../styles/normalize.css';
+import { useState } from 'react';
 import { Link } from "react-router-dom"
+import { AuthenticateService } from "../../services/authenticate.service";
 
 function Register() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            if (firstName && lastName && email && password) {
+                const response = await AuthenticateService.register(firstName, lastName, email, password);
+                // Handle the successful registration response here, if needed
+                console.log('User registered:', response);
+            } else {
+                setError('Por favor, ingresa todos los campos requeridos.');
+            }
+        } catch (error) {
+            setError('Error en el registro de usuario: ' + error.message);
+        }
+    };
+
+
     return (
         <div className="reg-main-container">
             <div className="reg-left">

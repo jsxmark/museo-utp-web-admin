@@ -2,9 +2,17 @@ import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
 import titi from '../../assets/images/titi.png'
 import compu from '../../assets/images/compu_prehistorica.jpg'
+import React, { useEffect } from 'react';
+import hamburguesa from '../../utils/quarter-pound.js'
 
 function Dashboard(){
+
+    useEffect(() => {
+        hamburguesa();
+      }, []);
+    
     return(
+         
         <div className="container">
             <nav className='nav-sidebar'>
                 <ul>
@@ -26,12 +34,7 @@ function Dashboard(){
                     <li className='op'><a href="">
                     <i class="fa-solid fa-window-restore"></i>
                         <span className="nav-item">Añadir Categoría</span>
-                    </a></li>
-                    <li className='op'><a href="">
-                        <i className="fa-solid fa-graduation-cap"></i>
-                        <span className="nav-item">Añadir Estudiante</span>
-                    </a></li>
-
+                    </a></li>   
                     <li className='op'><a href="" class="logout">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
@@ -40,9 +43,44 @@ function Dashboard(){
             </nav>
             
             <section className="main">
+
+            <div className="quarter-pound-container">
+                <div className="bars__menu">
+                    <span className="line1__bars-menu"></span>
+                    <span className="line2__bars-menu"></span>
+                    <span className="line3__bars-menu"></span>
+                </div>
+            </div>
+            
+            
+            <nav className='nav-sidebar-responsive'>
+                <ul>
+                    <li className='op'><a href="#">
+                        <i className="fas fa-home"></i>
+                        <span className="nav-item">Inicio</span>
+                    </a></li>
+                    <li className='op'><a href="#">
+                        <i className="fas fa-user"></i>
+                        <span className="nav-item">Perfil</span>
+                    </a></li>
+                    <li className='op'><a href="">
+                        <i className="fa-solid fa-plus"></i>
+                        <span className="nav-item">Añadir Artículo</span>
+                    </a></li>
+                    <li className='op'><a href="">
+                    <i class="fa-solid fa-window-restore"></i>
+                        <span className="nav-item">Añadir Categoría</span>
+                    </a></li>   
+
+                    <li className='op'><a href="">
+                        <i className="fas fa-sign-out-alt"></i>
+                        <span className="nav-item">Salir</span>
+                    </a></li>
+                </ul>
+            </nav>
+    
                 <div className="main-top">
-                    <h1>Skills</h1>
-                    <i className="fas fa-user-cog"></i>
+                    <h1 className='admins'>Administradores</h1>
                 </div>
                 <div className="main-skills">
                     <div className="card">
@@ -99,7 +137,11 @@ function Dashboard(){
                 </section>
             </section>
 
+            
         </div>
+         
         ); 
+          
 }
 export default Dashboard
+

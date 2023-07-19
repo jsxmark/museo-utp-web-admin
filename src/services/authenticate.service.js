@@ -10,6 +10,22 @@ const login = async (username, password) => {
     }
 };
 
+const register = async (firstName, lastName, email, password) => {
+    try {
+      return (
+        await axios.post(BASE_URL + 'registro/', {
+          nombre: firstName,
+          apellido: lastName,
+          correo: email,
+          contrasena: password,
+        })
+      ).data;
+    } catch (error) {
+      throw new Error('Error en la solicitud de registro: ' + error);
+    }
+  };
+
 export const AuthenticateService = {
     login,
+    register
 }
