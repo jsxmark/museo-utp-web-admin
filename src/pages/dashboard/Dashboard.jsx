@@ -4,6 +4,8 @@ import titi from '../../assets/images/titi.png'
 import compu from '../../assets/images/compu_prehistorica.jpg'
 import React, { useEffect } from 'react';
 import hamburguesa from '../../utils/quarter-pound.js'
+import { Link} from "react-router-dom"
+
 
 function Dashboard(){
 
