@@ -95,15 +95,27 @@ html{
     margin-bottom: 1rem;
 }
 
-.btn-register-reg{
+ .btn-register-reg{
     padding: 1rem;
+    background: linear-gradient(81.02deg, rgb(250, 85, 96) -23.47%, rgb(177, 75, 244) 45.52%, rgb(77, 145, 255) 114.8%);
+    font-weight: 900;
+    font-size: 100%;
+    color: #fff;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70%;
+    transition: 0.6s;
+}
+
+.btn-register-text{
     background: linear-gradient(81.02deg, rgb(250, 85, 96) -23.47%, rgb(177, 75, 244) 45.52%, rgb(77, 145, 255) 114.8%);
     font-weight: 900;
     color: #fff;
     border-style: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 70%;
+    width: 100%;
     transition: 0.6s;
 }
 
@@ -209,6 +221,18 @@ html{
         width: 70%;
         transition: 0.6s;
     }
+
+  .btn-register-responsive-text{
+        background: linear-gradient(81.02deg, rgb(250, 85, 96) -23.47%, rgb(177, 75, 244) 45.52%, rgb(77, 145, 255) 114.8%);
+        font-weight: 900;
+        color: #fff;
+        border-style: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.6s;
+    }
+
   }
 
 

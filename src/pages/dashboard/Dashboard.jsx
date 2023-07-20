@@ -13,7 +13,6 @@ function Dashboard(){
       }, []);
     
     return(
-         
         <div className="container">
             <nav className='nav-sidebar'>
                 <ul>
@@ -24,10 +23,12 @@ function Dashboard(){
                         <i className="fas fa-home"></i>
                         <span className="nav-item">Inicio</span>
                     </a></li>
-                    <li className='op'><a href="#">
-                        <i className="fas fa-user"></i>
-                        <span className="nav-item">Perfil</span>
-                    </a></li>
+                    <li className='op'>
+                        <Link to={"/register"} >
+                            <i className="fas fa-user"></i>
+                            <span className="nav-item">Reg. Usuario Admin</span>
+                        </Link>
+                    </li>
                     <li className='op'>
                         <Link to={"/articles"} >
                             <i className="fa-solid fa-plus"></i>
