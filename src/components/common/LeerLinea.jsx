@@ -1,5 +1,6 @@
 import React from "react";
 
+//Aqui se muestra informacion de un articulo y permite usar los botones 
 const LeerLinea = ({articulo, handleClicEditar, handleEliminar}) => {
     return (
       <tr>
@@ -9,8 +10,8 @@ const LeerLinea = ({articulo, handleClicEditar, handleEliminar}) => {
         <td>{articulo.dueno}</td>
         <td>{articulo.descripcion}</td>
         <td>
-            <button type="button" onClick={(event)=> handleClicEditar(event, articulo)}>Editar</button>
-            <button type="button" onClick={ () => handleEliminar(articulo.id) }>Eliminar</button>
+            <button className="article-button" type="button" onClick={(event)=> handleClicEditar(event, articulo)}>Editar</button>
+            <button className="article-button-delete" type="button" onClick={ () => handleEliminar(articulo.id) }>Eliminar</button>
         </td>
     </tr>
     )

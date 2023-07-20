@@ -1,5 +1,6 @@
 import React from "react";
 
+//Aqui se controla la edicion y guardado de los datos al usar el boton editar
 const EditarLinea = ({editarData, handleEditarFormChange, handleCancelar}) => {
     return(
         <tr>
