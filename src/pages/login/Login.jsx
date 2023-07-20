@@ -1,6 +1,6 @@
 import '../../styles/login.css';
 import '../../styles/normalize.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import { AuthenticateService } from "../../services/authenticate.service";
 

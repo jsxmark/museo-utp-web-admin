@@ -238,7 +238,7 @@ nav .fas, .fa-solid{
 
 @media (max-width: 1087px){
 
-    
+
     .nav-sidebar{
         display: none;
     }
@@ -248,7 +248,7 @@ nav .fas, .fa-solid{
         position: relative;
         transition: 0.5s;
         overflow: hidden;
-        
+
     }
 
     /*quarter-pound*/

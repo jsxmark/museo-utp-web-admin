@@ -2,10 +2,9 @@ import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
 import titi from '../../assets/images/titi.png'
 import compu from '../../assets/images/compu_prehistorica.jpg'
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import hamburguesa from '../../utils/quarter-pound.js'
-import { Link} from "react-router-dom"
-
+import { Link } from "react-router-dom"
 
 function Dashboard(){
 
@@ -18,7 +17,7 @@ function Dashboard(){
         <div className="container">
             <nav className='nav-sidebar'>
                 <ul>
-                    <li><a href="#" class="logo">
+                    <li><a href="#" className="logo">
                         <img src= {titi} alt="" />
                     </a></li>
                     <li className='op'><a href="#">
@@ -36,10 +35,10 @@ function Dashboard(){
                         </Link>
                     </li>
                     <li className='op'><a href="">
-                    <i class="fa-solid fa-window-restore"></i>
+                        <i className="fa-solid fa-window-restore"></i>
                         <span className="nav-item">Añadir Categoría</span>
                     </a></li>   
-                    <li className='op'><a href="" class="logout">
+                    <li className='op'><a href="" className="logout">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
                     </a></li>
@@ -72,7 +71,7 @@ function Dashboard(){
                         <span className="nav-item">Añadir Artículo</span>
                     </a></li>
                     <li className='op'><a href="">
-                    <i class="fa-solid fa-window-restore"></i>
+                        <i className="fa-solid fa-window-restore"></i>
                         <span className="nav-item">Añadir Categoría</span>
                     </a></li>   
 
@@ -145,7 +144,6 @@ function Dashboard(){
         </div>
          
         ); 
-          
 }
 export default Dashboard
 

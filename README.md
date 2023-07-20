@@ -1,15 +1,28 @@
-# web-crud
-Sistema de administración de contenido para proyecto de Museo Tecnológico.
+<h1 align="center">
+  UTP Web Administrativa
+</h1>
 
-- src/
-- components/   (Aquí se encuentran los componentes de React)
-- styles/       (Aquí se encuentran los archivos de estilos)
-- assets/       (Aquí se encuentran los archivos estáticos, como imágenes)
-- pages/        (Aquí se encuentran las páginas de la aplicación)
-- utils/        (Aquí se encuentran utilidades y funciones auxiliares)
-- App.js        (Archivo principal de la aplicación)
-- index.js      (Archivo de entrada de la aplicación / registra componentes)
-- public/         (Aquí se encuentran los archivos públicos)
-- index.html    (Archivo HTML principal)
-- package.json    (Archivo de configuración de npm)
-- README.md       (Archivo con información y documentación del proyecto)
+### Versiones
+
+node js: 18.16.1
+
+npm: 9.7.2
+
+Para obtener una copia local del código, clónelo usando git:
+
+```
+https://github.com/jsxmark/museo-utp-web-admin.git
+cd museo-utp-web-admin
+```
+
+Instalar dependencias:
+
+```
+npm i
+```
+
+Iniciar un servidor web local ejecutando:
+
+```
+npm start
+```

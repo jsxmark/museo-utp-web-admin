@@ -30,7 +30,7 @@ function Register() {
     return (
         <div className="reg-main-container">
             <div className="reg-left">
-            <div className="reg-right-container-form-responsive reg-flex-form">
+                <div className="reg-right-container-form-responsive reg-flex-form">
                     <h2 className='register-text reg-degradado-verde'>Registro de usuario</h2>
                     <p className='reg-welcome-text'>Regístrate para gestionar y compartir los increíbles artefactos que impulsaron la revolución digital.</p>
                     <input className='reg-input' type="text" name="" id="" placeholder='Nombre'/>
