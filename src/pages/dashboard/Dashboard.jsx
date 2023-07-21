@@ -44,11 +44,12 @@ function Dashboard(){
                             <span className="nav-item">Añadir Artículo</span>
                         </Link>
                     </li>
-                    <li className='op'><a href="">
-                        <i className="fa-solid fa-window-restore"></i>
-                        <span className="nav-item">Añadir Categoría</span>
-                    </a></li>   
-
+                    <li className='op'>
+                        <Link to={"/categories"} >
+                            <i className="fa-solid fa-window-restore"></i>
+                            <span className="nav-item">Añadir Categoría</span>
+                        </Link>
+                    </li>   
                     <li className='op'><a href="">
                         <i class="fa-solid fa-building-columns"></i>
                         <span className="nav-item">Añadir Facultad</span>
@@ -175,9 +176,8 @@ function Dashboard(){
                         </div>
                     </div>
                 </section>
-            </section> 
+            </section>
         </div>
-         
         ); 
 }
 export default Dashboard
