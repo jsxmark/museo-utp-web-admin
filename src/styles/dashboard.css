@@ -235,9 +235,9 @@ nav .fas, .fa-solid{
     float: right;
 }
 
-
 @media (max-width: 1087px){
 
+    
 
     .nav-sidebar{
         display: none;
