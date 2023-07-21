@@ -15,9 +15,14 @@ function Login() {
         event.preventDefault()
         if (username && password) {
             AuthenticateService.login(username, password)
-            .then(() => {
-                navigate("/dashboard")
-                window.location.reload()
+            .then(result => {
+                if (result.usuario.rol === "ADMIN") {
+                    navigate("/dashboard")
+                    window.location.reload()
+                    localStorage.setItem('token', result.token);
+                } else {
+                    alert("No tienes permiso para acceder a este sitio.")
+                }
             })
             .catch(() => {
                 setError('Error en la solicitud de inicio de sesión. Por favor, inténtalo nuevamente.')
@@ -39,7 +44,7 @@ function Login() {
                     <form className='login-form'onSubmit={handleSubmit}>
                         <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
-                        <input className='log-input' type="text" placeholder='Correo electrónico' value={username} onChange={(event) => setUsername(event.target.value)}/>
+                        <input className='log-input' type="text" placeholder='Nombre de usuario' value={username} onChange={(event) => setUsername(event.target.value)}/>
                         <input className='log-input' type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
                         <p className='signup-prompt'><Link to={"/login"}>¿Olvidó su contraseña?, pulse aquí</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>

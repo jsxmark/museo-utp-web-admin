@@ -1,12 +1,20 @@
 import axios from "axios";
 
-const BASE_URL = "https://0371-190-219-223-152.ngrok-free.app/";
+const BASE_URL = "http://localhost:8080/api";
 
 const login = async (username, password) => {
     try {
-        return (await axios.post(BASE_URL + 'usuario/', {nombre_usuario: username, contrasena: password, rol: 'admin'})).data
+        return (await axios.post(BASE_URL + '/auth/login', {nombre_usuario: username, password: password})).data
     } catch (error) {
         throw new Error('Error en la solicitud de inicio de sesión: '+error);
+    }
+};
+
+const checkrol = async (username) => {
+    try {
+        return (await axios.post(BASE_URL + '/usuario/all', {nombre_usuario: username})).data
+    } catch (error) {
+        throw new Error('Error en la solicitud de busqueda por rol: '+error);
     }
 };
 
@@ -27,5 +35,6 @@ const register = async (firstName, lastName, email, password) => {
 
 export const AuthenticateService = {
     login,
-    register
+    register,
+    //checkrol
 }
