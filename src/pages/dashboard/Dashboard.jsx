@@ -29,6 +29,10 @@ function Dashboard(){
                             <span className="nav-item">Reg. Usuario Admin</span>
                         </Link>
                     </li>
+                    <li className='op'><a href="">
+                        <i className="fa-solid fa-graduation-cap"></i>
+                        <span className="nav-item">Reg. Estudiante</span>
+                    </a></li> 
                     <li className='op'>
                         <Link to={"/articles"} >
                             <i className="fa-solid fa-plus"></i>
@@ -39,6 +43,15 @@ function Dashboard(){
                         <i className="fa-solid fa-window-restore"></i>
                         <span className="nav-item">Añadir Categoría</span>
                     </a></li>   
+
+                    <li className='op'><a href="">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span className="nav-item">Añadir Facultad</span>
+                    </a></li> 
+                    <li className='op'><a href="">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span className="nav-item">Añadir Carrera</span>
+                    </a></li> 
                     <li className='op'><a href="" className="logout">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
@@ -56,26 +69,40 @@ function Dashboard(){
                 </div>
             </div>
             
-            
             <nav className='nav-sidebar-responsive'>
                 <ul>
                     <li className='op'><a href="#">
                         <i className="fas fa-home"></i>
                         <span className="nav-item">Inicio</span>
                     </a></li>
-                    <li className='op'><a href="#">
+                    <li className='op'>
+                        <Link to={"/register"}>
                         <i className="fas fa-user"></i>
-                        <span className="nav-item">Perfil</span>
-                    </a></li>
+                        <span className="nav-item">Reg. Usuario Admin</span>
+                        </Link>
+                    </li>
                     <li className='op'><a href="">
+                        <i className="fa-solid fa-graduation-cap"></i>
+                        <span className="nav-item">Reg. Estudiante</span>
+                    </a></li> 
+                    <li className='op'>
+                        <Link to={"/articles"}>
                         <i className="fa-solid fa-plus"></i>
                         <span className="nav-item">Añadir Artículo</span>
-                    </a></li>
+                        </Link>
+                    </li>
                     <li className='op'><a href="">
                         <i className="fa-solid fa-window-restore"></i>
                         <span className="nav-item">Añadir Categoría</span>
                     </a></li>   
-
+                    <li className='op'><a href="">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span className="nav-item">Añadir Facultad</span>
+                    </a></li> 
+                    <li className='op'><a href="">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span className="nav-item">Añadir Carrera</span>
+                    </a></li> 
                     <li className='op'><a href="">
                         <i className="fas fa-sign-out-alt"></i>
                         <span className="nav-item">Salir</span>
