@@ -2,7 +2,7 @@ import '../../styles/articles.css';
 import '../../styles/dashboard.css'
 import hamburguesa from '../../utils/quarter-pound'
 import { useEffect } from 'react';
-import NavBarItems from './NavBarItems';
+import SideBarItems from './SideBarItems';
 
 function SideBarResponsive() {
 
@@ -21,7 +21,7 @@ function SideBarResponsive() {
         </div>
         
         <nav className='nav-sidebar-responsive'>
-            <NavBarItems/>
+            <SideBarItems/>
         </nav>
       </>
   )
