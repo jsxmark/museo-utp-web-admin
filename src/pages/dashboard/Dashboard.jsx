@@ -1,23 +1,10 @@
 import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
-import titi from '../../assets/images/titi.png'
 import compu from '../../assets/images/compu_prehistorica.jpg'
-import { useEffect } from 'react';
-import hamburguesa from '../../utils/quarter-pound.js'
-import { Link } from "react-router-dom"
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 
 function Dashboard(){
-
-    useEffect(() => {
-        hamburguesa();
-    }, []);
-
-    const removeToken = (event) => {
-        event.preventDefault()
-        localStorage.removeItem('token');
-    }
     
     return(
         <div className="container">

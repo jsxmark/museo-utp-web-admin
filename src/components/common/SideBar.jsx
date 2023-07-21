@@ -1,13 +1,13 @@
 import '../../styles/articles.css';
 import '../../styles/dashboard.css'
-import NavBarItems from './NavBarItems';
+import SideBarItems from './SideBarItems';
 
 function SideBar() {
 
   return (
       <>
         <nav className='nav-sidebar'>
-            <NavBarItems/>
+            <SideBarItems/>
         </nav>
       </>
   )

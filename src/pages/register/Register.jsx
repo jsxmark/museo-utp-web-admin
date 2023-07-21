@@ -3,6 +3,8 @@ import '../../styles/normalize.css';
 import { useState } from 'react';
 import { Link } from "react-router-dom"
 import { AuthenticateService } from "../../services/authenticate.service";
+import SideBar from '../../components/common/SideBar';
+import SideBarResponsive from '../../components/common/SideBarResponsive';
 
 function Register() {
     const [firstName, setFirstName] = useState('');
@@ -29,6 +31,9 @@ function Register() {
 
     return (
         <div className="reg-main-container">
+            
+            <SideBar />
+            
             <div className="reg-left">
                 <div className="reg-right-container-form-responsive reg-flex-form">
                     <h2 className='register-text reg-degradado-verde'>Registro de usuario Administrador</h2>
@@ -42,7 +47,8 @@ function Register() {
                     <Link to={"/dashboard"} className='btn-register-responsive'><button className='btn-register-responsive-text' type='submit'>Volver</button></Link>
                 </div>
             </div>
-            <div className="reg-right">
+
+            <div className="reg-right">                
                 <div className="reg-right-container-form">
                     <h2 className='register-text reg-degradado-verde'>Registro de usuario Administrador</h2>
                     <p className='reg-welcome-text'>Regístrate para gestionar y compartir los increíbles artefactos que impulsaron la revolución digital.</p>
