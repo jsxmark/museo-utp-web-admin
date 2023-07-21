@@ -124,29 +124,11 @@ function Dashboard(){
                 </div>
                 <div className="main-skills">
                     <div className="card">
-                        <i className="fas fa-laptop-code"></i>
                         <h3>Web developemt</h3>
                         <p>Join Over 1 million Students.</p>
                         <button>Get Started</button>
                     </div>
-                    <div className="card">
-                        <i className="fab fa-wordpress"></i>
-                        <h3>WordPress</h3>
-                        <p>Join Over 3 million Students.</p>
-                        <button>Get Started</button>
-                    </div>
-                    <div className="card">
-                        <i className="fas fa-palette"></i>
-                        <h3>graphic design</h3>
-                        <p>Join Over 2 million Students.</p>
-                        <button>Get Started</button>
-                    </div>
-                    <div className="card">
-                        <i className="fab fa-app-store-ios"></i>
-                        <h3>IOS dev</h3>
-                        <p>Join Over 1 million Students.</p>
-                        <button>Get Started</button>
-                    </div>
+
                 </div>
 
                 <section className="main-course">

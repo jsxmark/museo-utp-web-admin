@@ -111,6 +111,7 @@ nav .fas, .fa-solid{
 .main-skills{
     display: flex;
     margin-top: 20px;
+    justify-content: center;
 }
 .main-skills .card{
     width: 25%;
