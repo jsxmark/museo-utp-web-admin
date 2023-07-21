@@ -3,8 +3,12 @@ import '../../styles/dashboard.css'
 import '../../styles/normalize.css';
 
 function Categories() {
-  return (
-      <SideBar />
+    return (
+      <div className='container'>
+            <SideBar />
+            
+      </div>
+      
   )
 }
 
