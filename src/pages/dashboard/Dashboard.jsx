@@ -10,7 +10,12 @@ function Dashboard(){
 
     useEffect(() => {
         hamburguesa();
-      }, []);
+    }, []);
+
+    const removeToken = (event) => {
+        event.preventDefault()
+        localStorage.removeItem('token');
+    }
     
     return(
         <div className="container">
@@ -52,10 +57,12 @@ function Dashboard(){
                         <i class="fa-solid fa-receipt"></i>
                         <span className="nav-item">Añadir Carrera</span>
                     </a></li> 
-                    <li className='op'><a href="" className="logout">
-                        <i className="fas fa-sign-out-alt"></i>
-                        <span className="nav-item">Salir</span>
-                    </a></li>
+                    <li className='op' onClick={removeToken}>
+                        <Link to={"/login"}>
+                            <i className="fas fa-sign-out-alt"></i>
+                            <span className="nav-item">Salir</span>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             
@@ -96,17 +103,19 @@ function Dashboard(){
                         <span className="nav-item">Añadir Categoría</span>
                     </a></li>   
                     <li className='op'><a href="">
-                        <i class="fa-solid fa-building-columns"></i>
+                        <i className="fa-solid fa-building-columns"></i>
                         <span className="nav-item">Añadir Facultad</span>
                     </a></li> 
                     <li className='op'><a href="">
-                        <i class="fa-solid fa-receipt"></i>
+                        <i className="fa-solid fa-receipt"></i>
                         <span className="nav-item">Añadir Carrera</span>
                     </a></li> 
-                    <li className='op'><a href="">
-                        <i className="fas fa-sign-out-alt"></i>
-                        <span className="nav-item">Salir</span>
-                    </a></li>
+                    <li className='op' onClick={removeToken}>
+                        <Link to={"/login"}>
+                            <i className="fas fa-sign-out-alt"></i>
+                            <span className="nav-item">Salir</span>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
     
@@ -166,9 +175,7 @@ function Dashboard(){
                         </div>
                     </div>
                 </section>
-            </section>
-
-            
+            </section> 
         </div>
          
         ); 
