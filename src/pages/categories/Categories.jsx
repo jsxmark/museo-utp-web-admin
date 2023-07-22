@@ -6,8 +6,16 @@ import { useState, useEffect } from "react"
 import data from "../../utils/data.json"
 import LeerLinea from '../../components/common/LeerLinea';
 import EditarLinea from '../../components/common/EditarLinea';
+import { CategoriesService } from '../../services/categories.service';
 
 function Categories() {
+
+    const [categories, setCategories] = useState([]);
+    
+    useEffect(() => {
+        CategoriesService.getCategories().then((data) => setCategories(data));
+        console.log(categories)
+    }, []);
 
     const [articulos, setArticulos] = useState(data);
     const [addFormData, setAddFormData] = useState({
@@ -138,33 +146,27 @@ function Categories() {
                 <SideBarResponsive />
                 
                 <h1>Lista de Articulos</h1>
-                <form onSubmit={handleEditarSubmit}>
+                <div>
+                    <h2>Categorías</h2>
                     <table>
                         <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                            </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            {/* Agrega más encabezados según los campos de tus categorías */}
+                        </tr>
                         </thead>
                         <tbody>
-                            {articulos.map((articulo) =>(
-                                <>
-                                {editarArticuloId === articulo.idTemporal ? (
-                                    <EditarLinea 
-                                        editarData={editarData}
-                                        handleEditarFormChange={handleEditarFormChange}
-                                        handleCancelar={handleCancelar}/> 
-                                        ) : (
-                                            <LeerLinea 
-                                                articulo={articulo}
-                                                handleClicEditar={handleClicEditar}
-                                                handleEliminar={handleEliminar}/> 
-                                                )}
-                                </>
-                                ))}
+                        {categories.map((category) => (
+                            <tr key={category.id}>
+                            <td>{category.id}</td>
+                            <td>{category.nombre}</td>
+                            {/* Agrega más celdas según los campos de tus categorías */}
+                            </tr>
+                        ))}
                         </tbody>
                     </table>
-                </form>
+                </div>
 
                 <h2>Agregar Objeto</h2>
 
