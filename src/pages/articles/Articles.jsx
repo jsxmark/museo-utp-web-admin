@@ -52,7 +52,7 @@ function Articles() {
         setEditarData(newData);
     }
 
-    
+
     const handleClicEditar = (event, articulo) => {
         event.preventDefault();
         setEditarArticuloId(articulo.idTemporal);

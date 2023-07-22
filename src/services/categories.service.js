@@ -13,6 +13,21 @@ const getCategories = async () => {
     }
 };
 
+const postCategories = async (namecategories) => {
+    try {
+        const config = {
+            headers: {
+                'x-token': localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+            },
+        };
+        return (await axios.post(BASE_URL + '/categorias/', JSON.stringify({ nombre: namecategories }), config)).data
+    } catch (error) {
+        throw new Error('Error en la solicitud de adicion de categoria: '+error);
+    }
+};
+
 export const CategoriesService = {
     getCategories,
+    postCategories,
 }
