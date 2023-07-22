@@ -1,7 +1,8 @@
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 import '../../styles/dashboard.css'
-import '../../styles/normalize.css';
+import '../../styles/normalize.css'
+import '../../styles/articles.css';
 import { useState, useEffect } from "react"
 import data from "../../utils/data.json"
 import LeerLinea from '../../components/common/LeerLinea';
@@ -145,75 +146,84 @@ function Categories() {
 
                 <SideBarResponsive />
                 
-                <h1>Lista de Articulos</h1>
-                <div>
-                    <h2>Categorías</h2>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            {/* Agrega más encabezados según los campos de tus categorías */}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {categories.map((category) => (
-                            <tr key={category.id}>
-                            <td>{category.id}</td>
-                            <td>{category.nombre}</td>
-                            {/* Agrega más celdas según los campos de tus categorías */}
+                <main class="table">
+                    <section class="table_header">
+                        <h1>Lista de Categorías</h1>
+                    </section>
+                    <section class="table_body">
+                        <section class="table_header">
+                            <h1>Categorías</h1>
+                        </section>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                {/* Agrega más encabezados según los campos de tus categorías */}
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                            {categories.map((category) => (
+                                <tr key={category.id}>
+                                <td>{category.id}</td>
+                                <td>{category.nombre}</td>
+                                {/* Agrega más celdas según los campos de tus categorías */}
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </section>
 
-                <h2>Agregar Objeto</h2>
+                    <section class="table_header">
+                        <h2>Agregar Categoría</h2>
+                    </section>
 
-                <form onSubmit={handleFromSubmit}>
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="nombre"
-                        required
-                        placeholder="Ingrese Nombre..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="ubicacion"
-                        required
-                        placeholder="Se encuentra en..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="categoria"
-                        required
-                        placeholder="Ingrese Categoria..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="dueno"
-                        required
-                        placeholder="Pertenece a...?"
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="descripcion"
-                        required
-                        placeholder="Descripcion..."
-                        onChange={handleFormChange}
-                    />
-                    <button className="article-button" type="submit">Agregar</button>
-                </form>
-            
+                    <section class="table_body">
+                        <form onSubmit={handleFromSubmit}>
+                            <input
+                                className="article-input"
+                                type="text" 
+                                name="nombre"
+                                required
+                                placeholder="Ingrese Nombre..."
+                                onChange={handleFormChange}
+                            />
+                            <input
+                                className="article-input"
+                                type="text" 
+                                name="ubicacion"
+                                required
+                                placeholder="Se encuentra en..."
+                                onChange={handleFormChange}
+                            />
+                            <input
+                                className="article-input"
+                                type="text" 
+                                name="categoria"
+                                required
+                                placeholder="Ingrese Categoria..."
+                                onChange={handleFormChange}
+                            />
+                            <input
+                                className="article-input"
+                                type="text" 
+                                name="dueno"
+                                required
+                                placeholder="Pertenece a...?"
+                                onChange={handleFormChange}
+                            />
+                            <input
+                                className="article-input"
+                                type="text" 
+                                name="descripcion"
+                                required
+                                placeholder="Descripcion..."
+                                onChange={handleFormChange}
+                            />
+                            <button className="article-button" type="submit">Agregar</button>
+                        </form>
+                    </section>
+                </main>
             </section>
             
       </div>

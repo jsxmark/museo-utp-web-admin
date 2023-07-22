@@ -169,61 +169,56 @@ function Articles() {
           </table>
         </form>
 
-        <h2>Agregar Objeto</h2>
+                <h2>Agregar Objeto</h2>
 
-        <form onSubmit={handleFromSubmit}>
-          <input
-            className='article-input'
-            type='text'
-            name='nombre'
-            required
-            placeholder='Ingrese Nombre...'
-            value={addFormData.nombre}
-            onChange={handleFormChange}
-          />
-          <input
-            className='article-input'
-            type='text'
-            name='ubicacion'
-            required
-            placeholder='Se encuentra en...'
-            value={addFormData.ubicacion}
-            onChange={handleFormChange}
-          />
-          <input
-            className='article-input'
-            type='text'
-            name='categoria'
-            required
-            placeholder='Ingrese Categoria...'
-            value={addFormData.categoria}
-            onChange={handleFormChange}
-          />
-          <input
-            className='article-input'
-            type='text'
-            name='dueno'
-            required
-            placeholder='Pertenece a...?'
-            value={addFormData.dueno}
-            onChange={handleFormChange}
-          />
-          <input
-            className='article-input'
-            type='text'
-            name='descripcion'
-            required
-            placeholder='Descripcion...'
-            value={addFormData.descripcion}
-            onChange={handleFormChange}
-          />
-          <button className='article-button' type='submit'>
-            Agregar
-          </button>
-        </form>
-      </section>
-    </div>
-  );
+                <form onSubmit={handleFromSubmit}>
+                    <input
+                        className="article-input"
+                        type="text" 
+                        name="nombre"
+                        required
+                        placeholder="Ingrese Nombre..."
+                        onChange={handleFormChange}
+                    />
+                    <input
+                        className="article-input"
+                        type="text" 
+                        name="ubicacion"
+                        required
+                        placeholder="Se encuentra en..."
+                        onChange={handleFormChange}
+                    />
+                    <input
+                        className="article-input"
+                        type="text" 
+                        name="categoria"
+                        required
+                        placeholder="Ingrese Categoria..."
+                        onChange={handleFormChange}
+                    />
+                    <input
+                        className="article-input"
+                        type="text" 
+                        name="dueno"
+                        required
+                        placeholder="Pertenece a...?"
+                        onChange={handleFormChange}
+                    />
+                    <input
+                        className="article-input"
+                        type="text" 
+                        name="descripcion"
+                        required
+                        placeholder="Descripcion..."
+                        onChange={handleFormChange}
+                    />
+                    <button className="article-button" type="submit">Agregar</button>
+                </form>
+            </section>
+
+        </div>
+
+        );
 }
 
 export default Articles;
