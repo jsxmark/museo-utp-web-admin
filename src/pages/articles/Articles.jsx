@@ -142,88 +142,98 @@ function Articles() {
                 
                 <SideBarResponsive/>
                 
-                <h1>Lista de Articulos</h1>
-                <form onSubmit={handleEditarSubmit}>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Ubicacion</th>
-                                <th>Categoria</th>
-                                <th>Dueño</th>
-                                <th>Descripcion</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-  {articles.map((articulo) => (
-    <>
-      {editarArticuloId === articulo.idTemporal ? (
-        <EditarLinea
-          editarData={editarData}
-          handleEditarFormChange={handleEditarFormChange}
-          handleCancelar={handleCancelar}
-        />
-      ) : (
-        <LeerLinea
-          articulo={articulo}
-          handleClicEditar={handleClicEditar}
-          handleEliminar={handleEliminar}
-        />
-      )}
-    </>
-  ))}
-</tbody>
-                    </table>
-                </form>
+                <main class="table">
+                    <section class="table_header">
+                        <h1>Lista de Articulos</h1>
+                    </section>
+                    <section class="table_body">
+                        <form onSubmit={handleEditarSubmit}>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Ubicacion</th>
+                                        <th>Categoria</th>
+                                        <th>Dueño</th>
+                                        <th>Descripcion</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                <h2>Agregar Objeto</h2>
+                                {articles.map((articulo) => (
+                                    <>
+                                    {editarArticuloId === articulo.idTemporal ? (
+                                        <EditarLinea
+                                        editarData={editarData}
+                                        handleEditarFormChange={handleEditarFormChange}
+                                        handleCancelar={handleCancelar}
+                                        />
+                                    ) : (
+                                        <LeerLinea
+                                        articulo={articulo}
+                                        handleClicEditar={handleClicEditar}
+                                        handleEliminar={handleEliminar}
+                                        />
+                                    )}
+                                    </>
+                                ))}
+                                </tbody>
+                            </table>
+                        </form>
+                    </section>
 
-                <form onSubmit={handleFromSubmit}>
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="nombre"
-                        required
-                        placeholder="Ingrese Nombre..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="ubicacion"
-                        required
-                        placeholder="Se encuentra en..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="categoria"
-                        required
-                        placeholder="Ingrese Categoria..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="dueno"
-                        required
-                        placeholder="Pertenece a...?"
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="descripcion"
-                        required
-                        placeholder="Descripcion..."
-                        onChange={handleFormChange}
-                    />
-                    <button className="article-button" type="submit">Agregar</button>
-                </form>
+                    <section class="table_header">
+                        <h2>Agregar Objeto</h2>
+                    </section>
+
+                    <section class="table_body">
+                            <form onSubmit={handleFromSubmit}>
+                                <input
+                                    className="article-input"
+                                    type="text" 
+                                    name="nombre"
+                                    required
+                                    placeholder="Ingrese Nombre..."
+                                    onChange={handleFormChange}
+                                />
+                                <input
+                                    className="article-input"
+                                    type="text" 
+                                    name="ubicacion"
+                                    required
+                                    placeholder="Se encuentra en..."
+                                    onChange={handleFormChange}
+                                />
+                                <input
+                                    className="article-input"
+                                    type="text" 
+                                    name="categoria"
+                                    required
+                                    placeholder="Ingrese Categoria..."
+                                    onChange={handleFormChange}
+                                />
+                                <input
+                                    className="article-input"
+                                    type="text" 
+                                    name="dueno"
+                                    required
+                                    placeholder="Pertenece a...?"
+                                    onChange={handleFormChange}
+                                />
+                                <input
+                                    className="article-input"
+                                    type="text" 
+                                    name="descripcion"
+                                    required
+                                    placeholder="Descripcion..."
+                                    onChange={handleFormChange}
+                                />
+                                <button className="article-button" type="submit">Agregar</button>
+                            </form>
+                    </section>
+                </main>
             </section>
-
         </div>
 
         );
