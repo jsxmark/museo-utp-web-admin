@@ -18,7 +18,7 @@ function Articles() {
     }, []);
 
     const handleFromSubmit = (event) => {
-        
+        event.preventDefault();
     };
 
   return (
