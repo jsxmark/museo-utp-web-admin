@@ -7,7 +7,7 @@ const BASE_URL = host_principal;
 
 const getCategories = async () => {
     try {
-        return (await axios.get(BASE_URL + '/categories/all')).data
+        return (await axios.get(BASE_URL + '/categorias/all')).data
     } catch (error) {
         throw new Error('Error en la solicitud de busqueda de categorias: '+error);
     }
