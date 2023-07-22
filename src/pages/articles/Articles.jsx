@@ -35,106 +35,96 @@ function Articles() {
   const handleEditarFormChange = (event) => {
     event.preventDefault();
 
-    const fieldName = event.target.getAttribute('name');
+    const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
 
-    const newData = { ...editarData };
+    const newData = {...editarData}
     newData[fieldName] = fieldValue;
 
-        setEditarData(newData);
-    }
-
-
-    const handleClicEditar = (event, articulo) => {
-        event.preventDefault();
-        setEditarArticuloId(articulo.idTemporal);
     setEditarData(newData);
-  };
+}
 
-  const handleClicEditar = (event, articulo) => {
+
+const handleClicEditar = (event, articulo) => {
     event.preventDefault();
     setEditarArticuloId(articulo.idTemporal);
 
     const formValues = {
-      nombre: articulo.nombre,
-      ubicacion: articulo.ubicacion,
-      categoria: articulo.categoria,
-      dueno: articulo.dueno,
-      descripcion: articulo.descripcion,
-    };
+        nombre: articulo.nombre,
+        ubicacion: articulo.ubicacion,
+        categoria: articulo.categoria,
+        dueno: articulo.dueno,
+        descripcion: articulo.descripcion
+    }
 
     setEditarData(formValues);
-  };
+}
 
-  const handleEditarSubmit = (event) => {
+const handleEditarSubmit = (event) => {
     event.preventDefault();
 
     const articuloEditado = {
-      idTemporal: editarArticuloId,
-      nombre: editarData.nombre,
-      ubicacion: editarData.ubicacion,
-      categoria: editarData.categoria,
-      dueno: editarData.dueno,
-      descripcion: editarData.descripcion,
-    };
+        id: editarArticuloId,
+        nombre: editarData.nombre,
+        ubicacion: editarData.ubicacion,
+        categoria: editarData.categoria,
+        dueno: editarData.dueno,
+        descripcion: editarData.descripcion
+    }
 
-    const newArticles = articles.map((articulo) =>
-      articulo.idTemporal === editarArticuloId ? articuloEditado : articulo
-    );
+    const newArticulos = [...articulos];
 
-    setArticles(newArticles);
+    const index = articulos.findIndex((articulo) => articulo.idTemporal === editarArticuloId);
+
+    newArticulos[index] = articuloEditado;
+
+    setArticulos(newArticulos);
+    setEditarArticuloId(null)
+};
+
+
+
+const handleCancelar = () => {
     setEditarArticuloId(null);
-  };
+}
 
-  const handleCancelar = () => {
-    setEditarArticuloId(null);
-  };
+const handleEliminar = () => {
+    const newArticulo = [...articulos];
 
-  const handleEliminar = () => {
-    const newArticles = articles.filter(
-      (articulo) => articulo.idTemporal !== editarArticuloId
-    );
+    const index = articulos.findIndex((articulo) => articulo.idTemporal === editarArticuloId);
 
-    setArticles(newArticles);
-    setEditarArticuloId(null);
-  };
+    newArticulo.splice(index, 1);
 
-  const handleFormChange = (event) => {
+    setArticulos(newArticulo);
+}
+
+const handleFormChange = (event) => {
     event.preventDefault();
 
-    const nombre = event.target.getAttribute('name');
+    const nombre = event.target.getAttribute("name");
     const fieldValue = event.target.value;
 
-    const newFormData = { ...addFormData };
+    const newFormData = {...addFormData};
     newFormData[nombre] = fieldValue;
 
     setAddFormData(newFormData);
-  };
+};
 
-  const handleFromSubmit = (event) => {
+const handleFromSubmit = (event) => {
     event.preventDefault();
 
     const newArticulo = {
-      idTemporal: nanoid(),
-      nombre: addFormData.nombre,
-      ubicacion: addFormData.ubicacion,
-      categoria: addFormData.categoria,
-      descripcion: addFormData.descripcion,
-      dueno: addFormData.dueno,
+        id: nanoid(),
+        nombre: addFormData.nombre,
+        ubicacion: addFormData.ubicacion,
+        categoria: addFormData.categoria,
+        descripcion: addFormData.descripcion,
+        dueno: addFormData.dueno,
     };
 
-    const newArticles = [...articles, newArticulo];
-    setArticles(newArticles);
-
-    // Limpiar el formulario después de agregar un artículo
-    setAddFormData({
-      nombre: '',
-      ubicacion: '',
-      categoria: '',
-      descripcion: '',
-      dueno: '',
-    });
-  };
+    const newArticulos = [...articulos, newArticulo];
+    setArticulos(newArticulos);
+};
 
   return (
     <div className='container'>
