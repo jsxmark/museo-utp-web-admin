@@ -1,12 +1,15 @@
 import '../../styles/login.css';
 import titi from '../../assets/images/titi.png'
 import { Link } from "react-router-dom"
+import { useAuth } from '../../components/auth/AuthProvider';
 
 function SideBarItems() {
 
+    const auth = useAuth();
+
     const removeToken = (event) => {
         event.preventDefault()
-        localStorage.removeItem('token');
+        auth.endSession()
     }
 
     return (
