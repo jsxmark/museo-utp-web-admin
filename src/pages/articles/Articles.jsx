@@ -1,221 +1,124 @@
 import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
-import LeerLinea from '../../components/common/LeerLinea';
-import EditarLinea from '../../components/common/EditarLinea';
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 import { ArticlesService } from '../../services/articles.service';
 
 function Articles() {
-  const [articles, setArticles] = useState([]);
-  const [addFormData, setAddFormData] = useState({
-    nombre: '',
-    ubicacion: '',
-    categoria: '',
-    descripcion: '',
-    dueno: '',
-  });
 
-  const [editarData, setEditarData] = useState({
-    nombre: '',
-    ubicacion: '',
-    categoria: '',
-    descripcion: '',
-    dueno: '',
-  });
+    const [articles, setArticles] = useState([]);
+    const [namearticle, setNameArticle] = useState('');
+    const [location, setLocation] = useState('');
+    const [category, setCategory] = useState('');
+    const [dueno, setDueno] = useState('');
+    const [description, setDescription] = useState('');
+    const mappingArticles = ArticlesService.getArticles().then((data) => setArticles(data));
+    
+    useEffect(() => {
+        mappingArticles
+    }, []);
 
-  const [editarArticuloId, setEditarArticuloId] = useState(null);
-
-  useEffect(() => {
-    ArticlesService.getArticles()
-      .then((data) => setArticles(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  const handleEditarFormChange = (event) => {
-    event.preventDefault();
-
-    const fieldName = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
-
-    const newData = {...editarData}
-    newData[fieldName] = fieldValue;
-
-    setEditarData(newData);
-}
-
-
-const handleClicEditar = (event, articulo) => {
-    event.preventDefault();
-    setEditarArticuloId(articulo.idTemporal);
-
-    const formValues = {
-        nombre: articulo.nombre,
-        ubicacion: articulo.ubicacion,
-        categoria: articulo.categoria,
-        dueno: articulo.dueno,
-        descripcion: articulo.descripcion
-    }
-
-    setEditarData(formValues);
-}
-
-const handleEditarSubmit = (event) => {
-    event.preventDefault();
-
-    const articuloEditado = {
-        id: editarArticuloId,
-        nombre: editarData.nombre,
-        ubicacion: editarData.ubicacion,
-        categoria: editarData.categoria,
-        dueno: editarData.dueno,
-        descripcion: editarData.descripcion
-    }
-
-    const newArticulos = [...articulos];
-
-    const index = articulos.findIndex((articulo) => articulo.idTemporal === editarArticuloId);
-
-    newArticulos[index] = articuloEditado;
-
-    setArticulos(newArticulos);
-    setEditarArticuloId(null)
-};
-
-
-
-const handleCancelar = () => {
-    setEditarArticuloId(null);
-}
-
-const handleEliminar = () => {
-    const newArticulo = [...articulos];
-
-    const index = articulos.findIndex((articulo) => articulo.idTemporal === editarArticuloId);
-
-    newArticulo.splice(index, 1);
-
-    setArticulos(newArticulo);
-}
-
-const handleFormChange = (event) => {
-    event.preventDefault();
-
-    const nombre = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
-
-    const newFormData = {...addFormData};
-    newFormData[nombre] = fieldValue;
-
-    setAddFormData(newFormData);
-};
-
-const handleFromSubmit = (event) => {
-    event.preventDefault();
-
-    const newArticulo = {
-        id: nanoid(),
-        nombre: addFormData.nombre,
-        ubicacion: addFormData.ubicacion,
-        categoria: addFormData.categoria,
-        descripcion: addFormData.descripcion,
-        dueno: addFormData.dueno,
+    const handleFromSubmit = (event) => {
+        
     };
-
-    const newArticulos = [...articulos, newArticulo];
-    setArticulos(newArticulos);
-};
 
   return (
     <div className='container'>
-      <SideBar />
-      <section className='main-articles'>
-        <SideBarResponsive />
-        <h1>Lista de Articulos</h1>
-        <form onSubmit={handleEditarSubmit}>
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Ubicacion</th>
-                <th>Categoria</th>
-                <th>Dueño</th>
-                <th>Descripcion</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {articles.map((articulo) => (
-                <React.Fragment key={articulo.idTemporal}>
-                  {editarArticuloId === articulo.idTemporal ? (
-                    <EditarLinea
-                      editarData={editarData}
-                      handleEditarFormChange={handleEditarFormChange}
-                      handleCancelar={handleCancelar}
-                    />
-                  ) : (
-                    <LeerLinea
-                      articulo={articulo}
-                      handleClicEditar={handleClicEditar}
-                      handleEliminar={handleEliminar}
-                    />
-                  )}
-                </React.Fragment>
-              ))}
-            </tbody>
-          </table>
-        </form>
-
-                <h2>Agregar Objeto</h2>
-
-                <form onSubmit={handleFromSubmit}>
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="nombre"
-                        required
-                        placeholder="Ingrese Nombre..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="ubicacion"
-                        required
-                        placeholder="Se encuentra en..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="categoria"
-                        required
-                        placeholder="Ingrese Categoria..."
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="dueno"
-                        required
-                        placeholder="Pertenece a...?"
-                        onChange={handleFormChange}
-                    />
-                    <input
-                        className="article-input"
-                        type="text" 
-                        name="descripcion"
-                        required
-                        placeholder="Descripcion..."
-                        onChange={handleFormChange}
-                    />
-                    <button className="article-button" type="submit">Agregar</button>
-                </form>
-            </section>
-
-        </div>
-
-        );
+        <SideBar />
+        <section className='main-articles'>
+            <SideBarResponsive />
+                <main className="table">
+                    <section className="table_header">
+                        <h1>Lista de Articulos</h1>
+                    </section>
+                  <section className="table_body">
+                        <section className="table_header">
+                            <h1>Articulos</h1>
+                        </section>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Ubicacion</th>
+                                    <th>Categoria</th>
+                                    <th>Dueño</th>
+                                    <th>Descripcion</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            {articles.map((article) => (
+                                <tr key={article.id}>
+                                    <td>{article.nombre}</td>
+                                    <td>{article.ubicacion}</td>
+                                    <td>{article.categoria}</td>
+                                    <td>{article.dueno}</td>
+                                    <td>{article.descripcion}</td>
+                                    <td>
+                                        <button className="article-button-delete" onClick={() => handleDelete(category.id)}>Eliminar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </section>
+                    
+                    <section className="table_header">
+                        <h2>Agregar Objeto</h2>
+                  </section>
+                  <section className="table_body">
+                      <form onSubmit={handleFromSubmit}>
+                        <input
+                            className="article-input"
+                            type="text" 
+                            name="nombre"
+                            required
+                            placeholder="Ingrese Nombre..."
+                            value={namearticle}
+                            onChange={(event) => setNameArticle(event.target.value)}
+                        />
+                        <input
+                            className="article-input"
+                            type="text" 
+                            name="ubicacion"
+                            required
+                            placeholder="Se encuentra en..."
+                            value={location}
+                            onChange={(event) => setLocation(event.target.value)}
+                        />
+                        <input
+                            className="article-input"
+                            type="text" 
+                            name="categoria"
+                            required
+                            placeholder="Ingrese Categoria..."
+                            value={category}
+                            onChange={(event) => setCategory(event.target.value)}
+                        />
+                        <input
+                            className="article-input"
+                            type="text" 
+                            name="dueno"
+                            required
+                            placeholder="Pertenece a...?"
+                            value={dueno}
+                            onChange={(event) => setDueno(event.target.value)}
+                        />
+                        <input
+                            className="article-input"
+                            type="text" 
+                            name="descripcion"
+                            required
+                            placeholder="Descripcion..."
+                            value={description}
+                            onChange={(event) => setDescription(event.target.value)}
+                        />
+                        <button className="article-button" type="submit">Agregar</button>
+                      </form>
+                  </section>
+              </main>
+        </section>
+    </div>
+    );
 }
 
 export default Articles;

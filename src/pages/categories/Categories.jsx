@@ -52,11 +52,11 @@ function Categories() {
                         </section>
                         <table>
                             <thead>
-                            <tr>
-                                <th>ID</th>
+                                <tr>
+                                    <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Accion</th>
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody>
                             {categories.map((category) => (
