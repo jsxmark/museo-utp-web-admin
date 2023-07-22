@@ -21,7 +21,7 @@ function Login() {
         if (username && password) {
             AuthenticateService.login(username, password)
             .then(result => {
-                if (result.usuario.rol === "ESTUD") {
+                if (result.usuario.rol === "ADMIN") {
                     if (result.token) {
                         auth.allowSession(result.token)
                         goTo("/dashboard")

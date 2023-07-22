@@ -129,7 +129,6 @@ function Categories() {
         setArticulos(newArticulos);
     };
 
-
     return (
       <div className='container'>
             <SideBar />
@@ -143,12 +142,8 @@ function Categories() {
                     <table>
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Ubicacion</th>
-                                <th>Categoria</th>
-                                <th>Dueño</th>
-                                <th>Descripcion</th>
-                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
