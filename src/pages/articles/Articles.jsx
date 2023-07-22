@@ -3,13 +3,23 @@ import '../../styles/dashboard.css'
 import data from "../../utils/data.json"
 import '../../styles/normalize.css';
 import {nanoid} from "nanoid"
-import { useState} from "react"
+// import { useState} from "react"
 import LeerLinea from '../../components/common/LeerLinea';
 import EditarLinea from '../../components/common/EditarLinea';
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
+import React, { useState, useEffect } from 'react';
+import { ArticlesService } from '../../services/articles.service';
 
 function Articles() {
+
+    const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    ArticlesService.getArticles()
+      .then((data) => setArticles(data))
+      .catch((error) => console.error(error));
+  }, []);
 
     const [articulos, setArticulos] = useState(data);
     const [addFormData, setAddFormData] = useState({
@@ -42,7 +52,7 @@ function Articles() {
         setEditarData(newData);
     }
 
-    //Función para manejar el clic en el botón de editar de un artículo específico
+    
     const handleClicEditar = (event, articulo) => {
         event.preventDefault();
         setEditarArticuloId(articulo.idTemporal);
@@ -58,7 +68,6 @@ function Articles() {
         setEditarData(formValues);
     }
 
-    //Función para manejar el envío del formulario de edición de un artículo
     const handleEditarSubmit = (event) => {
         event.preventDefault();
 
@@ -82,13 +91,11 @@ function Articles() {
     };
 
 
-    //Funcion para cancelar la edicion de un articulo
+    
     const handleCancelar = () => {
         setEditarArticuloId(null);
     }
 
-
-    //Funcion para eliminar un articulo
     const handleEliminar = () => {
         const newArticulo = [...articulos];
 
@@ -99,9 +106,6 @@ function Articles() {
         setArticulos(newArticulo);
     }
 
-    //----Funciones para agregar un articulo----
-
-    //actualiza el estado del formulario
     const handleFormChange = (event) => {
         event.preventDefault();
 
@@ -114,7 +118,6 @@ function Articles() {
         setAddFormData(newFormData);
     };
 
-    //agrega el nuevo articulo a la lista
     const handleFromSubmit = (event) => {
         event.preventDefault();
 
@@ -153,22 +156,24 @@ function Articles() {
                             </tr>
                         </thead>
                         <tbody>
-                            {articulos.map((articulo) =>(
-                                <>
-                                {editarArticuloId === articulo.idTemporal ? (
-                                    <EditarLinea 
-                                        editarData={editarData}
-                                        handleEditarFormChange={handleEditarFormChange}
-                                        handleCancelar={handleCancelar}/> 
-                                        ) : (
-                                            <LeerLinea 
-                                                articulo={articulo}
-                                                handleClicEditar={handleClicEditar}
-                                                handleEliminar={handleEliminar}/> 
-                                                )}
-                                </>
-                                ))}
-                        </tbody>
+  {articles.map((articulo) => (
+    <>
+      {editarArticuloId === articulo.idTemporal ? (
+        <EditarLinea
+          editarData={editarData}
+          handleEditarFormChange={handleEditarFormChange}
+          handleCancelar={handleCancelar}
+        />
+      ) : (
+        <LeerLinea
+          articulo={articulo}
+          handleClicEditar={handleClicEditar}
+          handleEliminar={handleEliminar}
+        />
+      )}
+    </>
+  ))}
+</tbody>
                     </table>
                 </form>
 
