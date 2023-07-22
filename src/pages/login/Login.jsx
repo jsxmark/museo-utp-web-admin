@@ -1,25 +1,32 @@
 import '../../styles/login.css';
 import '../../styles/normalize.css';
 import { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import { AuthenticateService } from "../../services/authenticate.service";
+import { useAuth } from '../../components/auth/AuthProvider';
 
 function Login() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('');
-    const navigate = useNavigate();
+    const goTo = useNavigate();
+    const auth = useAuth();
+    if (auth.isAuthenticated) {
+        return <Navigate to="/dashboard"/>
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         if (username && password) {
             AuthenticateService.login(username, password)
             .then(result => {
-                if (result.usuario.rol === "ADMIN") {
-                    navigate("/dashboard")
-                    window.location.reload()
-                    localStorage.setItem('token', result.token);
+                if (result.usuario.rol === "ESTUD") {
+                    if (result.token) {
+                        auth.allowSession(result.token)
+                        goTo("/dashboard")
+                        window.location.reload()
+                    }   
                 } else {
                     alert("No tienes permiso para acceder a este sitio.")
                 }

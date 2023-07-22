@@ -1,23 +1,53 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Dashboard from "../pages/dashboard/Dashboard";
 import Articles from "../pages/articles/Articles";
 import Categories from '../pages/categories/Categories';
+import ProtectedRoute from '../components/common/ProtectedRoute';
+import AuthProvider from '../components/auth/AuthProvider';
 
-const CustomRoutes = () => {
+const CustomRouters = () => {
+    const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/",
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "/dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "/register",
+            element: <Register />,
+          },
+          {
+            path: "/articles",
+            element: <Articles />,
+          },
+          {
+            path: "/categories",
+            element: <Categories />,
+          },
+        ],
+      }
+    ]);
+  
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>  
+      <RouterProvider router={router} />
+    </AuthProvider>
   );
+
 };
 
-export default CustomRoutes;
+export default CustomRouters;

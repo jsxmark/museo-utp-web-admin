@@ -28,7 +28,6 @@ function Register() {
         }
     };
 
-
     return (
         <div className="reg-main-container">
             
