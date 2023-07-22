@@ -4,15 +4,15 @@ import compu from '../../assets/images/compu_prehistorica.jpg'
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 
-function Dashboard() {
-
-    return (
+function Dashboard(){
+    
+    return(
         <div className="container">
-            <SideBar />
+            <SideBar/>
 
             <section className="main">
 
-                <SideBarResponsive />
+            <SideBarResponsive/>
     
                 <div className="main-top">
                     <h1 className='admins'>Administradores</h1>
@@ -47,15 +47,14 @@ function Dashboard() {
                                 <h3>Computadora Prehistórica</h3>
                                 <button className='btn-edit'>Editar</button>
                                 <button className='btn-delete'>Eliminar</button>
-                                <img src={compu} alt="" />
+                                <img src={compu} alt=""/>
                             </div>
                         </div>
                     </div>
                 </section>
             </section>
         </div>
-    );
+        ); 
 }
-
 export default Dashboard
 
