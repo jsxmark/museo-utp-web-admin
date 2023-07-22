@@ -41,6 +41,13 @@ function Articles() {
     const newData = { ...editarData };
     newData[fieldName] = fieldValue;
 
+        setEditarData(newData);
+    }
+
+
+    const handleClicEditar = (event, articulo) => {
+        event.preventDefault();
+        setEditarArticuloId(articulo.idTemporal);
     setEditarData(newData);
   };
 
