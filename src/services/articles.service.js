@@ -1,8 +1,9 @@
 import axios from "axios";
 
+const host_pruebas = "http://localhost:8080/api"
 const host_principal = "https://ds6.glaciar.club/api";
 
-const BASE_URL = host_principal;
+const BASE_URL = host_pruebas;
 
 const getArticles = async () => {
   try {

@@ -3,7 +3,7 @@ import axios from "axios";
 const host_pruebas = "http://localhost:8080/api"
 const host_principal = "https://ds6.glaciar.club/api"
 
-const BASE_URL = host_principal;
+const BASE_URL = host_pruebas;
 
 const login = async (username, password) => {
     try {
@@ -31,5 +31,4 @@ const register = async (firstName, lastName, email, password) => {
 export const AuthenticateService = {
     login,
     register,
-    //checkrol
 }

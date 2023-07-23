@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Dashboard from "../pages/dashboard/Dashboard";
 import Articles from "../pages/articles/Articles";
 import Categories from '../pages/categories/Categories';
+import Faculties from '../pages/faculties/Faculties';
 import ProtectedRoute from '../components/common/ProtectedRoute';
 import AuthProvider from '../components/auth/AuthProvider';
 
@@ -37,6 +38,10 @@ const CustomRouters = () => {
           {
             path: "/categories",
             element: <Categories />,
+          },
+          {
+            path: "/faculties",
+            element: <Faculties />,
           },
         ],
       }

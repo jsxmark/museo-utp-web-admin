@@ -3,7 +3,7 @@ import axios from "axios";
 const host_pruebas = "http://localhost:8080/api"
 const host_principal = "https://ds6.glaciar.club/api"
 
-const BASE_URL = host_principal;
+const BASE_URL = host_pruebas;
 
 const getCategories = async () => {
     try {
@@ -27,7 +27,22 @@ const postCategories = async (namecategories) => {
     }
 };
 
+const deleteCategories = async (idcategory) => {
+    try {
+        const config = {
+            headers: {
+                'x-token': localStorage.getItem('token'),
+                'Content-Type': 'application/json',
+            },
+        };
+        return (await axios.delete(BASE_URL.concat('/categorias/').concat(idcategory), config)).data
+    } catch (error) {
+        throw new Error('Error en la solicitud de adicion de categoria: '+error);
+    }
+};
+
 export const CategoriesService = {
     getCategories,
     postCategories,
+    deleteCategories,
 }

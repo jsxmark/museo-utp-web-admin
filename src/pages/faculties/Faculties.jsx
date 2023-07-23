@@ -4,13 +4,13 @@ import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
 import '../../styles/articles.css';
 import { useState, useEffect } from "react"
-import { CategoriesService } from '../../services/categories.service';
+import { FacultiesService } from '../../services/faculties.service';
 
-function Categories() {
-    const [categories, setCategories] = useState([]);
-    const [namecategories, setNameCategories] = useState('');
+function Faculties() {
+    const [faculties, setFaculties] = useState([]);
+    const [namefaculties, setNameFaculties] = useState('');
     function reloadTable() {
-        CategoriesService.getCategories().then((data) => setCategories(data));
+        FacultiesService.getFaculties().then((data) => setFaculties(data));
     }
 
     useEffect(() => {
@@ -19,12 +19,12 @@ function Categories() {
    
     const handleFromSubmit = (event) => {
         event.preventDefault();
-        const confirmAdd = window.confirm("¿Estás seguro de que deseas agregar esta categoría?");
+        const confirmAdd = window.confirm("¿Estás seguro de que deseas agregar esta facultad?");
         if (confirmAdd) {
-            CategoriesService.postCategories(namecategories)
+            FacultiesService.postFaculties(namefaculties)
             .then(() => {
                 reloadTable()
-                setNameCategories('')
+                setNameFaculties('')
             })
             .catch(() => {
                 alert('Error en la solicitud de insercion de categoria. Por favor, inténtalo nuevamente.')
@@ -33,12 +33,12 @@ function Categories() {
     };
 
     const handleDelete = (id) => {
-        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta categoría?");
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar esta facultad?");
         if (confirmDelete) {
-            CategoriesService.deleteCategories(id)
+            FacultiesService.deleteFaculties(id)
             .then(() => {
                 reloadTable()
-                setNameCategories('')
+                setNameFaculties('')
             })
             .catch(() => {
                 alert('Error en la solicitud de borrado de categoria. Por favor, inténtalo nuevamente.')
@@ -56,11 +56,11 @@ function Categories() {
                 
                 <main class="table">
                     <section class="table_header">
-                        <h1>Lista de Categorías</h1>
+                        <h1>Lista de Facultades</h1>
                     </section>
                     <section class="table_body">
                         <section class="table_header">
-                            <h1>Categorías</h1>
+                            <h1>Facultad</h1>
                         </section>
                         <table>
                             <thead>
@@ -70,11 +70,11 @@ function Categories() {
                                 </tr>
                             </thead>
                             <tbody>
-                            {categories.map((category) => (
-                                <tr key={category.id}>
-                                    <td>{category.nombre}</td>
+                            {faculties.map((faculty) => (
+                                <tr key={faculty.id}>
+                                    <td>{faculty.nombre}</td>
                                     <td>
-                                        <button className="article-button-delete" onClick={() => handleDelete(category.id)}>Eliminar</button>
+                                        <button className="article-button-delete" onClick={() => handleDelete(faculty.id)}>Eliminar</button>
                                     </td>
                                 </tr>
                             ))}
@@ -83,7 +83,7 @@ function Categories() {
                     </section>
 
                     <section class="table_header">
-                        <h2>Agregar Categoría</h2>
+                        <h2>Agregar Facultad</h2>
                     </section>
 
                     <section class="table_body">
@@ -94,8 +94,8 @@ function Categories() {
                                 name="descripcion"
                                 required
                                 placeholder="Descripcion..."
-                                value={namecategories}
-                                onChange={(event) => setNameCategories(event.target.value)}
+                                value={namefaculties}
+                                onChange={(event) => setNameFaculties(event.target.value)}
                             />
                             <button className="article-button" type="submit">Agregar</button>
                         </form>
@@ -106,4 +106,4 @@ function Categories() {
   )
 }
 
-export default Categories
+export default Faculties

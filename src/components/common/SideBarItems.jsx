@@ -47,10 +47,12 @@ function SideBarItems() {
                     </Link>
                 </li>   
 
-                <li className='op'><a href="">
-                    <i class="fa-solid fa-building-columns"></i>
-                    <span className="nav-item">Añadir Facultad</span>
-                </a></li> 
+                <li className='op'>                
+                    <Link to={"/faculties"} >
+                        <i className="fa-solid fa-building-columns"></i>
+                        <span className="nav-item">Añadir Facultad</span>
+                    </Link>
+                </li> 
 
                 <li className='op'><a href="">
                     <i class="fa-solid fa-receipt"></i>
