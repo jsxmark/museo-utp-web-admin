@@ -1,13 +1,14 @@
 import axios from "axios";
-
-const host_pruebas = "https://2726-190-219-223-92.ngrok-free.app/api"
-const host_principal = "https://ds6.glaciar.club/api"
-
-const BASE_URL = host_pruebas;
+import { API_BASE_URL } from "../utils/constants";
 
 const login = async (username, password) => {
     try {
-        return (await axios.post(BASE_URL + '/auth/login', {nombre_usuario: username, password: password})).data
+         const config = {
+            headers: {
+                'ngrok-skip-browser-warning': 'true',
+            },
+        };
+        return (await axios.post(API_BASE_URL.concat('/auth/login'), {nombre_usuario: username, password: password}, config)).data
     } catch (error) {
         throw new Error('Error en la solicitud de inicio de sesión: '+error);
     }
@@ -16,7 +17,7 @@ const login = async (username, password) => {
 const register = async (firstName, lastName, email, password) => {
     try {
         return (
-            await axios.post(BASE_URL + 'registro/', {
+            await axios.post(API_BASE_URL + 'registro/', {
                 nombre: firstName,
                 apellido: lastName,
                 correo: email,

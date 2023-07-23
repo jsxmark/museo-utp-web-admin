@@ -1,14 +1,14 @@
 import axios from "axios";
-
-const host_pruebas = "https://2726-190-219-223-92.ngrok-free.app/api"
-const host_principal = "https://ds6.glaciar.club/api";
-
-const BASE_URL = host_pruebas;
+import { API_BASE_URL } from "../utils/constants";
 
 const getArticles = async () => {
   try {
-    const response = await axios.get(BASE_URL + "/articulos/all");
-    return response.data;
+    const config = {
+          headers: {
+              'ngrok-skip-browser-warning': 'true',
+          },
+      };
+     return (await axios.get(API_BASE_URL.concat('/articulos/all'), config)).data
   } catch (error) {
     throw new Error("Error en la solicitud de búsqueda de artículos: " + error);
   }
@@ -16,7 +16,7 @@ const getArticles = async () => {
 
 const addArticle = async (article) => {
     try {
-      const response = await axios.post(BASE_URL + "/articulos", article);
+      const response = await axios.post(API_BASE_URL.concat("/articulos"), article);
       return response.data;
     } catch (error) {
       throw new Error("Error al agregar el artículo: " + error);
