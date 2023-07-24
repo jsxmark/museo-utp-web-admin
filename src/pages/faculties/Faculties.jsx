@@ -50,7 +50,7 @@ function Faculties() {
       <div className='container'>
             <SideBar />
 
-            <section className="main">
+            <section className="main" id='bgimage2'>
 
                 <SideBarResponsive />
                 
@@ -58,10 +58,10 @@ function Faculties() {
                     <section class="table_header">
                         <h1>Lista de Facultades</h1>
                     </section>
+                    <section class="table_sub-header">
+                        <h2>Facultad</h2>
+                    </section>
                     <section class="table_body">
-                        <section class="table_header">
-                            <h1>Facultad</h1>
-                        </section>
                         <table>
                             <thead>
                                 <tr>
@@ -82,11 +82,11 @@ function Faculties() {
                         </table>
                     </section>
 
-                    <section class="table_header">
+                    <section class="table_sub-header">
                         <h2>Agregar Facultad</h2>
                     </section>
 
-                    <section class="table_body">
+                    <section class="table_form">
                         <form onSubmit={handleFromSubmit}>
                             <input
                                 className="article-input"

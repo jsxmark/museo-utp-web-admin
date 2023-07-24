@@ -30,10 +30,10 @@ function Articles() {
                     <section className="table_header">
                         <h1>Lista de Articulos</h1>
                     </section>
+                    <section className="table_sub-header">
+                        <h2>Articulos</h2>
+                    </section>
                   <section className="table_body">
-                        <section className="table_header">
-                            <h1>Articulos</h1>
-                        </section>
                         <table>
                             <thead>
                                 <tr>
@@ -62,10 +62,10 @@ function Articles() {
                         </table>
                     </section>
                     
-                    <section className="table_header">
+                    <section className="table_sub-header">
                         <h2>Agregar Objeto</h2>
                   </section>
-                  <section className="table_body">
+                  <section className="table_form">
                       <form onSubmit={handleFromSubmit}>
                         <input
                             className="article-input"

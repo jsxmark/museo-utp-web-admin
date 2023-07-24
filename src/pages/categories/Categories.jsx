@@ -50,7 +50,7 @@ function Categories() {
       <div className='container'>
             <SideBar />
 
-            <section className="main">
+            <section className="main" id='bgimage1'>
 
                 <SideBarResponsive />
                 
@@ -58,10 +58,10 @@ function Categories() {
                     <section class="table_header">
                         <h1>Lista de Categorías</h1>
                     </section>
+                    <section class="table_sub-header">
+                        <h2>Categorías</h2>
+                    </section>
                     <section class="table_body">
-                        <section class="table_header">
-                            <h1>Categorías</h1>
-                        </section>
                         <table>
                             <thead>
                                 <tr>
@@ -82,11 +82,11 @@ function Categories() {
                         </table>
                     </section>
 
-                    <section class="table_header">
+                    <section class="table_sub-header">
                         <h2>Agregar Categoría</h2>
                     </section>
 
-                    <section class="table_body">
+                    <section class="table_form">
                         <form onSubmit={handleFromSubmit}>
                             <input
                                 className="article-input"
