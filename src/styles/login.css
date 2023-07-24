@@ -30,7 +30,7 @@
   /**left container**/
   .left {
     width: 65%;
-    background-color: yellow;
+    background-color: #000810;
     background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.5)),url("../assets/images/claudio-testa.webp");
     min-height: 100%;
     background-position: center center;
