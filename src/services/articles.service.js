@@ -14,6 +14,21 @@ const getArticles = async () => {
   }
 };
 
+const postArticle = async (formadata) => {
+    try {
+        const config = {
+            headers: {
+            'x-token': localStorage.getItem('token'),
+            'Content-Type': 'multipart/form-data',
+          },
+      };
+      
+        return (await axios.post(API_BASE_URL.concat('/articulos/'), formadata, config)).data;
+    } catch (error) {
+        throw new Error('Error en la solicitud de adición del artículo: ' + error);
+    }
+};
+
 const addArticle = async (article) => {
     try {
       const response = await axios.post(API_BASE_URL.concat("/articulos"), article);
@@ -43,7 +58,7 @@ const addArticle = async (article) => {
 
 export const ArticlesService = {
   getArticles,
-  addArticle,
+  postArticle,
   updateArticle,
   deleteArticle,
 };

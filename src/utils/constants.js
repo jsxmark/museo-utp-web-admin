@@ -1,2 +1,2 @@
-const BASE_URL = 'https://9579-190-219-223-104.ngrok-free.app'
+const BASE_URL = 'http://localhost:8080'
 export const API_BASE_URL = BASE_URL.concat('/api');

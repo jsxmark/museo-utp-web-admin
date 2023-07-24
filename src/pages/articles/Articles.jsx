@@ -9,16 +9,49 @@ function Articles() {
     const [namearticle, setNameArticle] = useState('');
     const [location, setLocation] = useState('');
     const [category, setCategory] = useState('');
+    const [images, setImages] = useState([]);
     const [dueno, setDueno] = useState('');
+    const [year, setYear] = useState('');
     const [description, setDescription] = useState('');
-    const mappingArticles = ArticlesService.getArticles().then((data) => setArticles(data));
-    
+    function reloadTable() {
+        ArticlesService.getArticles().then((data) => setArticles(data));
+        ArticlesService.getArticles().then((data) => console.log(data))
+    }
     useEffect(() => {
-        mappingArticles
+        reloadTable()
     }, []);
+
+    const handleImageChange = (event) => {
+        const selectedFiles = event.target.files;
+        const fileList = Array.from(selectedFiles);
+        setImages(fileList);
+    };
 
     const handleFromSubmit = (event) => {
         event.preventDefault();
+        const formdata = new FormData();
+        //formdata.append('multimedios', []);
+        formdata.append('data', JSON.stringify({
+            nombre: namearticle.toString(),
+            descripcion: description.toString(),
+            categoria_id: parseInt(category),
+            ubicacion: location.toString(),
+            dueno: dueno.toString(),
+            year: parseInt(year)
+        }));
+        ArticlesService.postArticle(formdata)
+        .then(() => {
+            reloadTable()
+            setNameArticle('')
+            setDescription('')
+            setLocation('')
+            setCategory('')
+            setDueno('')
+            setYear('')
+        })
+        .catch(() => {
+            alert('Error en la solicitud de insercion del articulo. Por favor, inténtalo nuevamente.')
+        });
     };
 
   return (
@@ -60,8 +93,7 @@ function Articles() {
                             ))}
                             </tbody>
                         </table>
-                    </section>
-                    
+                    </section> 
                     <section className="table_sub-header">
                         <h2>Agregar Objeto</h2>
                   </section>
@@ -87,7 +119,7 @@ function Articles() {
                         />
                         <input
                             className="article-input"
-                            type="text" 
+                            type="number" 
                             name="categoria"
                             required
                             placeholder="Ingrese Categoria..."
@@ -102,6 +134,15 @@ function Articles() {
                             placeholder="Pertenece a...?"
                             value={dueno}
                             onChange={(event) => setDueno(event.target.value)}
+                          />
+                        <input
+                            className="article-input"
+                            type="number" 
+                            name="year"
+                            required
+                            placeholder="Del año...?"
+                            value={year}
+                            onChange={(event) => setYear(event.target.value)}
                         />
                         <input
                             className="article-input"
@@ -111,7 +152,16 @@ function Articles() {
                             placeholder="Descripcion..."
                             value={description}
                             onChange={(event) => setDescription(event.target.value)}
-                        />
+                          />
+                        <input
+                            className="article-input"
+                            type="file"
+                            name="descripcion"
+                            accept="image/*"
+
+                            multiple
+                            onChange={handleImageChange}
+                          />
                         <button className="article-button" type="submit">Agregar</button>
                       </form>
                   </section>
