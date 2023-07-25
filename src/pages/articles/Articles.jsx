@@ -3,6 +3,9 @@ import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { toolbarOptions } from '../../utils/constants';
 
 function Articles() {
 
@@ -14,6 +17,7 @@ function Articles() {
     const [yearstate, setYear] = useState('');
     const [description, setDescription] = useState('');
     const [mapcategory, setMapCategory] = useState([]);
+
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
         CategoriesService.getCategories().then((data) => setMapCategory(data));
@@ -101,7 +105,9 @@ function Articles() {
                                     <td>{article.ubicacion}</td>
                                     <td>{article.categoria}</td>
                                     <td>{article.dueno}</td>
-                                    <td>{article.descripcion}</td>
+                                    <td>
+                                        <div dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                    </td>
                                     <td>
                                         <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
                                     </td>
@@ -166,16 +172,21 @@ function Articles() {
                             placeholder="Del año...?"
                             value={yearstate}
                             onChange={(event) => setYear(event.target.value)}
-                        />
-                        <input
-                            className="article-input"
-                            type="text" 
-                            name="descripcion"
-                            required
-                            placeholder="Descripcion..."
-                            value={description}
-                            onChange={(event) => setDescription(event.target.value)}
                           />
+                          <section className="quill-title">
+                                <h2>Descripción</h2>
+                              </section>
+                          <div className="editor-quill">
+                              <ReactQuill
+                                  className="react-quill"
+                                  theme="snow"
+                                  value={description}
+                                  onChange={setDescription}
+                                  modules={{
+                                    toolbar: toolbarOptions,
+                                }}
+                              />;
+                        </div>
                         <input
                             className="article-input"
                             id='my-files'
