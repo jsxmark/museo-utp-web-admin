@@ -11,7 +11,6 @@ function Dashboard(){
     const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Llamada a la función getArticles para obtener los datos de los artículos
     ArticlesService.getArticles()
       .then((data) => setArticles(data))
       .catch((error) => console.error('Error al obtener los artículos:', error));
@@ -36,11 +35,11 @@ function Dashboard(){
           <h1>Artículos de Museo</h1>
           <div className="course-box">
             <div className="course">
-              {/* Mapeo de los artículos obtenidos y mostrar sus nombres */}
               {articles.map((article) => (
                 <div key={article.id} className="box">
                   <h3>{article.nombre}</h3>
-                  {/* Aquí puedes agregar cualquier otra información de los artículos que desees mostrar */}
+                  <p>{article.categoria}</p>
+                    <img src={compu} alt="fotito" />
                 </div>
               ))}
             </div>
