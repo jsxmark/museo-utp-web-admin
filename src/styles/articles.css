@@ -6,255 +6,277 @@ Dorado oscuro #DAA641
 Bermellón #FF312E
 */
 /* Estilos generales */
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.main-articles{
-    position: relative;
-    width: 100%;
-    background-image: url('https://i.ibb.co/SyGLYyS/pexels-tomasz-filipek-1637438.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px; 
+.main-articles {
+  position: relative;
+  width: 100%;
+  background-image: url("https://i.ibb.co/SyGLYyS/pexels-tomasz-filipek-1637438.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
 }
 /*-- estilos de background para Categories, Faculties --*/
-#bgimage1{
-    position: relative;
-    width: 100%;
-    background-image: url('https://i.ibb.co/BB6SkWq/lens-g84549e527-1920.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px; 
+#bgimage1 {
+  position: relative;
+  width: 100%;
+  background-image: url("https://i.ibb.co/BB6SkWq/lens-g84549e527-1920.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
 }
 
-#bgimage2{
-    position: relative;
-    width: 100%;
-    background-image: url('https://i.ibb.co/fd725wy/chip-g29e386b98-1920.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px; 
+#bgimage2 {
+  position: relative;
+  width: 100%;
+  background-image: url("https://i.ibb.co/fd725wy/chip-g29e386b98-1920.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px;
 }
 
 /*-- Cuerpo de la tabla --*/
 .article-body {
-    font-family: Arial, sans-serif;
-    color: #ddd;
-    padding: 2%;
+  font-family: Arial, sans-serif;
+  color: #ddd;
+  padding: 2%;
 }
 
 .table {
-    height: 94vh;
-    padding: 10px;
-    background-color: #252525;
-    backdrop-filter: blur(7px);
-    box-shadow: 0 .4rem .8rem #DAA641;
-    border-radius: 5px;
-    overflow: hidden;
+  height: 94vh;
+  padding: 10px;
+  background-color: #252525;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0.4rem 0.8rem #daa641;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .table_header {
-    height: 10%;
-    margin-bottom: 1px;
-    background-color: #fff4;
-    padding: .8rem 1rem;
-    border-radius: .8rem;
-    color: #fff;
+  height: 10%;
+  margin-bottom: 1px;
+  background-color: #fff4;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #fff;
 }
 
 .table_sub-header {
-    height: 5%;
-    background-color: #DAA641;
-    padding: .8rem 1rem;
-    border-radius: .8rem;
-    color: #000000;
+  height: 5%;
+  background-color: #daa641;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #000000;
 }
 
 .table_body {
-    height: 65vh;
-    max-height: calc(89% - .8rem);
-    background-color: rgba(255, 255, 255, 0.452);
-    margin: .8rem auto;
-    border-radius: .6rem;
-    overflow: auto;
+  height: 65vh;
+  max-height: calc(89% - 0.8rem);
+  background-color: rgba(255, 255, 255, 0.452);
+  margin: 0.8rem auto;
+  border-radius: 0.6rem;
+  overflow: auto;
 }
 
 .table_body::-webkit-scrollbar {
-    width: 0.5rem;
-    height: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .table_body::-webkit-scrollbar-thumb {
-    border-radius: 0.5rem;
-    background-color: #0004;
-    visibility: hidden;
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
 }
 
 .table_body:hover:-webkit-scrollbar-thumb {
-    visibility: visible;
+  visibility: visible;
 }
 
 .table_form {
-    height: 5vh;
-    max-height: calc(89% - .8rem);
-    background-color: rgba(255, 255, 255, 0.452);
-    margin: .8rem auto;
-    border-radius: .6rem;
-    overflow: auto;
+  height: 5vh;
+  max-height: calc(89% - 0.8rem);
+  background-color: rgba(255, 255, 255, 0.452);
+  margin: 0.8rem auto;
+  border-radius: 0.6rem;
+  overflow: auto;
 }
 
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
 
-  /* Estilos para la tabla */
-  table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin-bottom: 20px;
-  }
+table th {
+  background-color: rgb(49, 49, 49);
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
 
-  table th {
-      background-color: rgb(49, 49, 49);
-      color: #fff;
-      font-weight: bold;
-      font-size: 12px;
-      padding: 10px;
-      border-bottom: 1px solid #fff;
-      text-align: center;
-  }
+table td {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  text-align: center;
+  font-size: 13px;
+}
 
-  table td {
-      background-color: #FFFFFF;
-      color: #000000;
-      padding: 10px;
-      border-bottom: 1px solid #fff;
-      border-right: 1px solid #fff;
-      border-left: 1px solid #fff;
-      text-align: center;
-      font-size: 13px;
-  }
+/* Estilos para el efecto hover */
+table tr:hover td {
+  background-color: #daa641;
+}
 
-  /* Estilos para el efecto hover */
-  table tr:hover td {
-      background-color: #DAA641;
-  }
+/* Estilos para las acciones */
+.article-button {
+  padding: 4px 6px;
+  margin: 3px 5px;
+  background-color: #daa641;
+  color: #000000;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-self: center;
+}
 
-  /* Estilos para las acciones */
-  .article-button {
-      padding: 4px 6px;
-      margin: 3px 5px;
-      background-color: #DAA641;
-      color: #000000;
-      font-size: 12px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      justify-self: center;
-    }
+.article-button:hover {
+  background-color: #7e6128ea;
+}
 
-  .article-button:hover {
-    background-color: #7e6128ea;
-    }
+.article-button-delete {
+  padding: 4px 6px;
+  margin: 3px 5px;
+  background-color: #ff312e;
+  color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-self: center;
+}
 
-  .article-button-delete {
-    padding: 4px 6px;
-    margin: 3px 5px;
-    background-color: #FF312E;
-    color: #ddd;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    justify-self: center;
-    }
+.article-button-delete:hover {
+  background-color: #a11c1a;
+}
 
-    .article-button-delete:hover {
-        background-color: #a11c1a;
-        }
-
-  /*.article-button.delete-button {
+/*.article-button.delete-button {
       background-color: #dc3545;
   }*/
 
-  /*.article-button.delete-button:hover {
+/*.article-button.delete-button:hover {
       background-color: #c82333;
   }*/
 
-  /* Estilos para los formularios */
-  .article-input[type="text"],
-  textarea {
-    background-color: #FFFFFF;
-      color: #000000;
-      border: none;
-      border-radius: 5px;
-      padding: 5px;
-      margin: 5px;
-      font-size: 12px;
-  }
-
-  .article-input[type="text"]:focus,
-  textarea:focus {
-      background-color: #DAA641;
-  }
-
-
-  @media (max-width: 1087px){
-
-
-    .nav-sidebar{
-        display: none;
-    }
-
-    .activenav-sidebar-responsive{
-        display: block;
-        position: relative;
-        transition: 0.5s;
-        overflow: hidden;
-
-    }
-
-    /*quarter-pound*/
-    .quarter-pound-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: end;
-    }
-    .bars__menu{
-        width: 30px;
-        height: 30px; 
-        cursor: pointer; 
-    }
-
-    .bars__menu span{
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: #fff;
-        margin-top: 6px;
-        transform-origin: 0px 100%;
-        transition: all 600ms;
-    }
-
-    /*quarter-pound animation*/
-    .activeline1__bars-menu{
-        transform: rotate(45deg) translate(-2px, 1px);
-    }
-
-    .activeline2__bars-menu{
-        opacity: 0;
-        margin-left: -30px;
-    }
-
-    .activeline3__bars-menu{
-        transform: rotate(-45deg) translate(-4px, 2px);
-    }
+/* Estilos para los formularios */
+.article-input[type="text"],
+textarea {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 12px;
 }
 
+.article-input[type="text"]:focus,
+textarea:focus {
+  background-color: #daa641;
+}
 
+@media (max-width: 1087px) {
+  .nav-sidebar {
+    display: none;
+  }
+
+  .activenav-sidebar-responsive {
+    display: block;
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  /*quarter-pound*/
+  .quarter-pound-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+  .bars__menu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .bars__menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    margin-top: 6px;
+    transform-origin: 0px 100%;
+    transition: all 600ms;
+  }
+
+  /*quarter-pound animation*/
+  .activeline1__bars-menu {
+    transform: rotate(45deg) translate(-2px, 1px);
+  }
+
+  .activeline2__bars-menu {
+    opacity: 0;
+    margin-left: -30px;
+  }
+
+  .activeline3__bars-menu {
+    transform: rotate(-45deg) translate(-4px, 2px);
+  }
+}
+
+/* Estilos para el select */
+.select-articles {
+  width: 200px; /* Ajusta el ancho del select según tus necesidades */
+  padding: 8px;
+  font-size: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none; 
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.select-articles:focus {
+  border-color: #daa641; 
+}
+
+.select-articles option {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px;
+}
+
+.select-articles option:checked {
+  background-color: #daa641;
+  color: #1a1a1a;
+}

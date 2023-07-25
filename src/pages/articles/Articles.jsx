@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
 import { ArticlesService } from '../../services/articles.service';
+import { CategoriesService } from '../../services/categories.service';
 
 function Articles() {
 
@@ -12,13 +13,14 @@ function Articles() {
     const [duenostate, setDueno] = useState('');
     const [yearstate, setYear] = useState('');
     const [description, setDescription] = useState('');
-    function reloadTable() {
+    const [mapcategory, setMapCategory] = useState([]);
+    function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
-        ArticlesService.getArticles().then((data) => console.log(data))
+        CategoriesService.getCategories().then((data) => setMapCategory(data));
     }
 
     useEffect(() => {
-        reloadTable()
+        reloadServices()
     }, []);
 
     const handleFromSubmit = (event) => {
@@ -36,7 +38,7 @@ function Articles() {
 
         ArticlesService.postArticle(formdata)
         .then(() => {
-            reloadTable()
+            reloadServices()
             setNameArticle('')
             setDescription('')
             setLocation('')
@@ -48,6 +50,25 @@ function Articles() {
             alert('Error en la solicitud de insercion del articulo. Por favor, inténtalo nuevamente.')
         });
     };
+
+    const handleDelete = (id) => {
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar este articulo?");
+        if (confirmDelete) {
+            ArticlesService.deleteArticle(id)
+            .then(() => {
+                reloadServices()
+                setNameArticle('')
+                setDescription('')
+                setLocation('')
+                setCategory('')
+                setDueno('')
+                setYear('')
+            })
+            .catch(() => {
+                alert('Error en la solicitud de borrado del articulo. Por favor, inténtalo nuevamente.')
+            });
+        }  
+    }
 
   return (
     <div className='container'>
@@ -82,7 +103,7 @@ function Articles() {
                                     <td>{article.dueno}</td>
                                     <td>{article.descripcion}</td>
                                     <td>
-                                        <button className="article-button-delete" onClick={() => handleDelete(category.id)}>Eliminar</button>
+                                        <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
                                     </td>
                                 </tr>
                             ))}
@@ -112,15 +133,22 @@ function Articles() {
                             value={location}
                             onChange={(event) => setLocation(event.target.value)}
                         />
-                        <input
-                            className="article-input"
-                            type="number" 
+                        <select
+                            className="select-articles"
                             name="categoria"
                             required
                             placeholder="Ingrese Categoria..."
                             value={category}
-                            onChange={(event) => setCategory(event.target.value)}
-                        />
+                            onChange={(event) => setCategory(event.target.value)}>
+                            {mapcategory.map((mcategory) => (
+                                <option
+                                    value={mcategory.id}
+                                    key={mcategory.id}
+                                    >
+                                    Categoria: {mcategory.nombre}
+                                </option>
+                            ))}
+                        </select>
                         <input
                             className="article-input"
                             type="text" 

@@ -26,15 +26,6 @@ const postArticle = async (formadata) => {
         throw new Error('Error en la solicitud de adición del artículo: ' + error);
     }
 };
-
-const addArticle = async (article) => {
-    try {
-      const response = await axios.post(API_BASE_URL.concat("/articulos"), article);
-      return response.data;
-    } catch (error) {
-      throw new Error("Error al agregar el artículo: " + error);
-    }
-  };
   
   const updateArticle = async (id, article) => {
     try {
@@ -45,13 +36,19 @@ const addArticle = async (article) => {
     }
   };
   
-  const deleteArticle = async (id) => {
-    try {
-      const response = await axios.delete(BASE_URL + `/articulos/${id}`);
-      return response.data;
-    } catch (error) {
-      throw new Error("Error al eliminar el artículo: " + error);
-    }
+  const deleteArticle = async (idarticle) => {
+      try {
+          const config = {
+              headers: {
+                  'x-token': localStorage.getItem('token'),
+                  'Content-Type': 'application/json',
+                  'ngrok-skip-browser-warning': 'true',
+              },
+          };
+          return (await axios.delete(API_BASE_URL.concat('/articulos/').concat(idarticle), config)).data
+      } catch (error) {
+          throw new Error('Error en la solicitud de eliminacion de articulo: '+error);
+      }
   };
 
 export const ArticlesService = {

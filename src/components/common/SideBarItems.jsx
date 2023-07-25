@@ -54,10 +54,12 @@ function SideBarItems() {
                     </Link>
                 </li> 
 
-                <li className='op'><a href="">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span className="nav-item">Añadir Carrera</span>
-                </a></li>
+                <li className='op'>
+                    <Link to={"/careers"} >
+                        <i className="fa-solid fa-receipt"></i>
+                        <span className="nav-item">Añadir Carrera</span>
+                    </Link>
+                </li>
 
                 <li className='op' onClick={removeToken}>
                     <Link to={"/login"}>
