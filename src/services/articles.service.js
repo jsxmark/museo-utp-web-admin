@@ -7,7 +7,7 @@ const getArticles = async () => {
           headers: {
               'ngrok-skip-browser-warning': 'true',
           },
-      };
+    };
      return (await axios.get(API_BASE_URL.concat('/articulos/all'), config)).data
   } catch (error) {
     throw new Error("Error en la solicitud de búsqueda de artículos: " + error);
@@ -15,15 +15,13 @@ const getArticles = async () => {
 };
 
 const postArticle = async (formadata) => {
-    try {
-        const config = {
-            headers: {
-            'x-token': localStorage.getItem('token'),
-            'Content-Type': 'multipart/form-data',
-          },
-      };
-      
-        return (await axios.post(API_BASE_URL.concat('/articulos/'), formadata, config)).data;
+  try {
+      const config = {
+          headers: {
+          'x-token': localStorage.getItem('token'),
+        },
+    };
+        return (await axios.post(API_BASE_URL.concat('/articulos/'), JSON.parse(formadata.get('data')), config)).data;
     } catch (error) {
         throw new Error('Error en la solicitud de adición del artículo: ' + error);
     }

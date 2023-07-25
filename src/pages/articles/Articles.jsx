@@ -9,36 +9,31 @@ function Articles() {
     const [namearticle, setNameArticle] = useState('');
     const [location, setLocation] = useState('');
     const [category, setCategory] = useState('');
-    const [images, setImages] = useState([]);
-    const [dueno, setDueno] = useState('');
-    const [year, setYear] = useState('');
+    const [duenostate, setDueno] = useState('');
+    const [yearstate, setYear] = useState('');
     const [description, setDescription] = useState('');
     function reloadTable() {
         ArticlesService.getArticles().then((data) => setArticles(data));
         ArticlesService.getArticles().then((data) => console.log(data))
     }
+
     useEffect(() => {
         reloadTable()
     }, []);
 
-    const handleImageChange = (event) => {
-        const selectedFiles = event.target.files;
-        const fileList = Array.from(selectedFiles);
-        setImages(fileList);
-    };
-
     const handleFromSubmit = (event) => {
         event.preventDefault();
-        const formdata = new FormData();
-        //formdata.append('multimedios', []);
+        let formdata = new FormData();
+
         formdata.append('data', JSON.stringify({
-            nombre: namearticle.toString(),
-            descripcion: description.toString(),
-            categoria_id: parseInt(category),
-            ubicacion: location.toString(),
-            dueno: dueno.toString(),
-            year: parseInt(year)
+            nombre: namearticle,
+            descripcion: description,
+            categoria_id: category,
+            ubicacion: location,
+            dueno: duenostate,
+            year: yearstate
         }));
+
         ArticlesService.postArticle(formdata)
         .then(() => {
             reloadTable()
@@ -132,7 +127,7 @@ function Articles() {
                             name="dueno"
                             required
                             placeholder="Pertenece a...?"
-                            value={dueno}
+                            value={duenostate}
                             onChange={(event) => setDueno(event.target.value)}
                           />
                         <input
@@ -141,7 +136,7 @@ function Articles() {
                             name="year"
                             required
                             placeholder="Del año...?"
-                            value={year}
+                            value={yearstate}
                             onChange={(event) => setYear(event.target.value)}
                         />
                         <input
@@ -155,12 +150,11 @@ function Articles() {
                           />
                         <input
                             className="article-input"
+                            id='my-files'
                             type="file"
-                            name="descripcion"
+                            name="multi"
                             accept="image/*"
-
                             multiple
-                            onChange={handleImageChange}
                           />
                         <button className="article-button" type="submit">Agregar</button>
                       </form>
