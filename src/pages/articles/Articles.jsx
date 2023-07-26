@@ -98,7 +98,7 @@ function Articles() {
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                        <tbody>
+                            <tbody>
                             {articles.map((article) => (
                                 <tr key={article.id}>
                                     <td>{article.nombre}</td>
@@ -163,7 +163,7 @@ function Articles() {
                             placeholder="Pertenece a...?"
                             value={duenostate}
                             onChange={(event) => setDueno(event.target.value)}
-                          />
+                        />
                         <input
                             className="article-input"
                             type="number" 
@@ -172,11 +172,11 @@ function Articles() {
                             placeholder="Del año...?"
                             value={yearstate}
                             onChange={(event) => setYear(event.target.value)}
-                          />
-                          <section className="quill-title">
-                                <h2>Descripción</h2>
-                              </section>
-                          <div className="editor-quill">
+                        />
+                        <section className="quill-title">
+                            <h2>Descripción</h2>
+                        </section>
+                        <div className="editor-quill">
                               <ReactQuill
                                   className="react-quill"
                                   theme="snow"
@@ -194,7 +194,7 @@ function Articles() {
                             name="multi"
                             accept="image/*"
                             multiple
-                          />
+                        />
                         <button className="article-button" type="submit">Agregar</button>
                       </form>
                   </section>

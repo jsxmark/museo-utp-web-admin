@@ -61,7 +61,7 @@ function Categories() {
                     <section class="table_sub-header">
                         <h2>Categorías</h2>
                     </section>
-                    <section class="table_body">
+                    <section class="table_body" id='t_body'>
                         <table>
                             <thead>
                                 <tr>
@@ -86,7 +86,7 @@ function Categories() {
                         <h2>Agregar Categoría</h2>
                     </section>
 
-                    <section class="table_form">
+                    <section class="table_form" id='t_form'>
                         <form onSubmit={handleFromSubmit}>
                             <input
                                 className="article-input"

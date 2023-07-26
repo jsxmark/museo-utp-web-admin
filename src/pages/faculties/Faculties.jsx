@@ -61,7 +61,7 @@ function Faculties() {
                     <section class="table_sub-header">
                         <h2>Facultad</h2>
                     </section>
-                    <section class="table_body">
+                    <section class="table_body" id='t_body'>
                         <table>
                             <thead>
                                 <tr>
@@ -86,7 +86,7 @@ function Faculties() {
                         <h2>Agregar Facultad</h2>
                     </section>
 
-                    <section class="table_form">
+                    <section class="table_form" id='t_form'>
                         <form onSubmit={handleFromSubmit}>
                             <input
                                 className="article-input"

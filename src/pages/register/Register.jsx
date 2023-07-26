@@ -43,7 +43,6 @@ function Register() {
                     <input className='reg-input' type="email" name="" id="" placeholder='Correo electrónico'/>
                     <input className='reg-input' type="password" name="" id="" placeholder='Contraseña'/>
                     <button className='btn-register-responsive' type='submit'>Registrarse</button><br/>
-                    <Link to={"/dashboard"} className='btn-register-responsive'><button className='btn-register-responsive-text' type='submit'>Volver</button></Link>
                 </div>
             </div>
 
@@ -56,7 +55,6 @@ function Register() {
                     <input className='reg-input' type="email" name="" id="" placeholder='Correo electrónico'/>
                     <input className='reg-input' type="password" name="" id="" placeholder='Contraseña'/>
                     <button className='btn-register-reg' type='submit'>Registrarse</button><br/>
-                    <Link to={"/dashboard"} className='btn-register-reg'><button className='btn-register-text' type='submit'>Volver</button></Link>
                 </div>
             </div>
         </div>
