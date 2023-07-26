@@ -167,9 +167,15 @@ nav .fas, .fa-solid{
     text-align: center;
     color: #fff;
 }
+.course{
+    display: flex;
+    flex-wrap: wrap;
+
+}
 .course-box{
     padding: 10px 10px 30px 10px;
     margin-top: 10px;
+    margin: 0 auto; 
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -187,11 +193,9 @@ nav .fas, .fa-solid{
     color: #000;
     border-bottom: 1px solid #000;
 }
-.course-box .course{
-    display: flex;
-}
+
 .box{
-    width: 33%;
+    width: 30%;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -199,9 +203,11 @@ nav .fas, .fa-solid{
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);  
     transition-property: transform;
     transition-duration: 300ms;
+    
 }
 .box h3{
-    width: fit-content;
+    /* width: fit-content; */
+    text-align: center;
 }
 .box:hover{
     transform: scale(1.03);
@@ -294,6 +300,7 @@ nav .fas, .fa-solid{
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex-wrap: wr;
     }
 
     .box{
