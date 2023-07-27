@@ -14,30 +14,17 @@ function Dashboard(){
     const [articles, setArticles] = useState([]);
     const [faculties, setFaculties] = useState([]);
     const [careers, setCareers] = useState([]);
-
-  useEffect(() => {
-    ArticlesService.getArticles()
-      .then((data) => setArticles(data))
-      .catch((error) => console.error('Error al obtener los artículos:', error));
-  }, []);
-
-  useEffect(() => {
-    CategoriesService.getCategories()
-      .then((data) => setCategories(data))
-      .catch((error) => console.error('Error al obtener las categorías:', error));
-  }, []);
-
-  useEffect(() => {
-    FacultiesService.getFaculties()
-      .then((data) => setFaculties(data))
-      .catch((error) => console.error('Error al obtener las facultades:', error));
-  }, []);
-
-  useEffect(() => {
-    CareersService.getCareers()
-      .then((data) => setCareers(data))
-      .catch((error) => console.error('Error al obtener las carreras:', error));
-  }, []);
+  
+    function reloadServices() {
+          ArticlesService.getArticles().then((data) => setArticles(data));
+          CategoriesService.getCategories().then((data) => setCategories(data));
+          FacultiesService.getFaculties().then((data) => setFaculties(data));
+          CareersService.getCareers().then((data) => setCareers(data))
+    }
+  
+    useEffect(() => {
+      reloadServices();
+    }, []);
     
      return (
     <div className="container">
@@ -53,7 +40,7 @@ function Dashboard(){
                 <div key={article.id} className="box">
                   <h3>{article.nombre}</h3>
                   <p>{article.categoria}</p>
-                    <img src={compu} alt="fotito" />
+                  <img src={article.fotos[0].url} alt="fotito" />
                 </div>
               ))}
             </div>
