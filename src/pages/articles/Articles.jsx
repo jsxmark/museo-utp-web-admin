@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
+import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
 import ReactQuill from 'react-quill';
@@ -27,23 +28,14 @@ function Articles() {
         reloadServices()
     }, []);
 
+    const handleQuillChange = (value) => {
+        setDescription(value);
+        document.getElementById('descripcionInput').value = value;
+    };
+
     const handleFromSubmit = (event) => {
         event.preventDefault();
-        let formdata = new FormData();
-
-        formdata.append('data', JSON.stringify({
-            nombre: namearticle,
-            descripcion: description,
-            categoria_id: category,
-            ubicacion: location,
-            dueno: duenostate,
-            year: yearstate
-        }));
-
-        formdata.append('multimetro', document.getElementById('my-files').files); 
-        //console.log(document.getElementById('my-files').files)
-
-        ArticlesService.postArticle(formdata)
+        ArticlesService.postArticle(new FormData(event.currentTarget))
         .then(() => {
             reloadServices()
             setNameArticle('')
@@ -92,7 +84,8 @@ function Articles() {
                   <section className="table_body">
                         <table>
                             <thead>
-                                <tr>
+                              <tr>
+                                    <th>Foto</th>
                                     <th>Nombre</th>
                                     <th>Ubicacion</th>
                                     <th>Categoria</th>
@@ -104,6 +97,13 @@ function Articles() {
                             <tbody>
                             {articles.map((article) => (
                                 <tr key={article.id}>
+                                    <td>
+                                        {article.fotos.length > 0 ? (
+                                            <img src={article.fotos[0].url} alt="image-article" />
+                                            ) : (
+                                            <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
+                                        )}
+                                    </td>
                                     <td>{article.nombre}</td>
                                     <td>{article.ubicacion}</td>
                                     <td>{article.categoria}</td>
@@ -144,7 +144,7 @@ function Articles() {
                         />
                         <select
                             className="select-articles"
-                            name="categoria"
+                            name="categoria_id"
                             required
                             placeholder="Ingrese Categoria..."
                             value={category}
@@ -179,23 +179,30 @@ function Articles() {
                         <section className="quill-title">
                             <h2>Descripción</h2>
                         </section>
-                        <div className="editor-quill">
+                        <div className="editor-quill" name="descripcion">
                               <ReactQuill
                                   className="react-quill"
                                   theme="snow"
                                   value={description}
-                                  onChange={setDescription}
+                                  onChange={handleQuillChange}
                                   modules={{
                                     toolbar: toolbarOptions,
                                 }}
                               />;
                         </div>
                         <input
+                            type="hidden"
+                            id="descripcionInput"
+                            name="descripcion"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                        <input
                             className="article-input"
                             id='my-files'
                             type="file"
-                            name="multi"
-                            accept="image/*"
+                            name="multimedios"
+                            accept=".jpg, .jpeg, .png, .gif, .mp4, .mp3, audio/*, video/*"
                             multiple
                             required
                         />

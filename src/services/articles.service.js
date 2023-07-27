@@ -15,23 +15,17 @@ const getArticles = async () => {
 };
 
 const postArticle = async (formadata) => {
-  const url = API_BASE_URL.concat('/articulos/');
-  const headers = {
-    'x-token': localStorage.getItem('token'),
-  };
-  const body = formadata;
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers,
-    body: body,
-  });
-
-  if (response.status === 200) {
-    return response.json();
-  } else {
-    throw new Error('Error al enviar el artículo.');
-  }
+  try {
+      const config = {
+          headers: {
+          'x-token': localStorage.getItem('token'),
+          'Content-Type':'multipart/form-data'
+        },
+    };
+        return (await axios.post(API_BASE_URL.concat('/articulos/'), formadata, config));
+    } catch (error) {
+        throw new Error('Error en la solicitud de adición del artículo: ' + error);
+    }
 };
   
   const updateArticle = async (id, article) => {
