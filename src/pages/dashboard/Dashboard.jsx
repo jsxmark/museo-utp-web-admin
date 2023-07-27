@@ -1,9 +1,9 @@
 import '../../styles/dashboard.css'
 import '../../styles/normalize.css'
 import React, { useState, useEffect } from 'react';
-import compu from '../../assets/images/compu_prehistorica.jpg'
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
+import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
 import { FacultiesService } from '../../services/faculties.service';
@@ -40,7 +40,11 @@ function Dashboard(){
                 <div key={article.id} className="box">
                   <h3>{article.nombre}</h3>
                   <p>{article.categoria}</p>
-                  <img src={article.fotos[0].url} alt="fotito" />
+                  {article.fotos.length > 0 ? (
+                      <img src={article.fotos[0].url} alt="image-article" />
+                    ) : (
+                      <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
+                  )}
                 </div>
               ))}
             </div>
