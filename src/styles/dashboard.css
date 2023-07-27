@@ -94,7 +94,7 @@ nav .fas, .fa-solid{
 }
   
 .op.active a{
-    background-color: #DAA641; /* Color del texto del enlace activo */
+    background-color: #DAA641;
 }
   
 .logout{
