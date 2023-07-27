@@ -33,7 +33,7 @@ function Dashboard(){
         <SideBarResponsive />
   
         <section className="main-course">
-          <h1>Artículos de Museo</h1>
+          <h1>Artículos de Museo Prueba</h1>
           <div className="course-box">
             <div className="course">
               {articles.map((article) => (
