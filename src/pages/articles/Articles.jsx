@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from '../../components/common/SideBar';
 import SideBarResponsive from '../../components/common/SideBarResponsive';
+import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
 import ReactQuill from 'react-quill';
@@ -96,7 +97,13 @@ function Articles() {
                             <tbody>
                             {articles.map((article) => (
                                 <tr key={article.id}>
-                                    <td><img src={article.fotos[0].url} alt="fotito" width="60" height="60"/></td>
+                                    <td>
+                                        {article.fotos.length > 0 ? (
+                                            <img src={article.fotos[0].url} alt="image-article" />
+                                            ) : (
+                                            <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
+                                        )}
+                                    </td>
                                     <td>{article.nombre}</td>
                                     <td>{article.ubicacion}</td>
                                     <td>{article.categoria}</td>
