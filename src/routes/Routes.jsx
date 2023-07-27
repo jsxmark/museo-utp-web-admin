@@ -6,6 +6,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import Articles from "../pages/articles/Articles";
 import Categories from '../pages/categories/Categories';
 import Faculties from '../pages/faculties/Faculties';
+import Users from '../pages/users/Users';
 import Careers from '../pages/careers/Careers';
 import ProtectedRoute from '../components/common/ProtectedRoute';
 import AuthProvider from '../components/auth/AuthProvider';
@@ -31,6 +32,10 @@ const CustomRouters = () => {
           {
             path: "/register",
             element: <Register />,
+          },
+          {
+            path: "/users",
+            element: <Users />,
           },
           {
             path: "/articles",

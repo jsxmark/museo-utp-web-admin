@@ -20,28 +20,35 @@ function SideBarItems() {
                 <li><a href="#" className="logo">
                     <img src= {titi} alt="" />
                 </a></li>
+
                 <li className={`op ${location.pathname === "/dashboard" ? "active" : ""}`}>
                     <Link to={"/dashboard"} >
                         <i className="fas fa-home"></i>
                         <span className="nav-item">Inicio</span>
                     </Link>
                 </li>
+
                 <li className={`op ${location.pathname === "/register" ? "active" : ""}`}>
                     <Link to={"/register"} >
                         <i className="fas fa-user"></i>
-                        <span className="nav-item">Reg. Usuario Admin</span>
+                        <span className="nav-item">Reg. Admin</span>
                     </Link>
                 </li>
-                <li className='op'><a href="">
-                    <i className="fa-solid fa-graduation-cap"></i>
-                    <span className="nav-item">Reg. Estudiante</span>
-                </a></li> 
+
+                <li className={`op ${location.pathname === "/users" ? "active" : ""}`}>
+                    <Link to={"/users"} >
+                        <i className="fa-solid fa-graduation-cap"></i>
+                        <span className="nav-item">Adm. Usuarios</span>
+                    </Link>
+                </li>
+                
                 <li className={`op ${location.pathname === "/articles" ? "active" : ""}`}>
                     <Link to={"/articles"} >
                         <i className="fa-solid fa-plus"></i>
                         <span className="nav-item">Añadir Artículo</span>
                     </Link>
                 </li>
+
                 <li className={`op ${location.pathname === "/categories" ? "active" : ""}`}>
                     <Link to={"/categories"} >
                         <i className="fa-solid fa-window-restore"></i>

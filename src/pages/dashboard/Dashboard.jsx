@@ -41,7 +41,7 @@ function Dashboard(){
                   <h3>{article.nombre}</h3>
                   <p>{article.categoria}</p>
                   {article.fotos.length > 0 ? (
-                      <img src={article.fotos[0].url} alt="image-article" />
+                      <img src={article.fotos[0].url} alt="image-article" width="100" height="150"/>
                     ) : (
                       <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
                   )}

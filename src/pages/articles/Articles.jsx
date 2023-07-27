@@ -90,7 +90,7 @@ function Articles() {
                                     <th>Ubicacion</th>
                                     <th>Categoria</th>
                                     <th>Dueño</th>
-                                    <th>Descripcion</th>
+                                    <th className="justi">Descripcion</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -99,7 +99,7 @@ function Articles() {
                                 <tr key={article.id}>
                                     <td>
                                         {article.fotos.length > 0 ? (
-                                            <img src={article.fotos[0].url} alt="image-article" />
+                                            <img src={article.fotos[0].url} alt="image-article" width="60" height="60" />
                                             ) : (
                                             <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
                                         )}
