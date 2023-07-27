@@ -40,6 +40,9 @@ function Articles() {
             year: yearstate
         }));
 
+        formdata.append('multimetro', document.getElementById('my-files').files); 
+        //console.log(document.getElementById('my-files').files)
+
         ArticlesService.postArticle(formdata)
         .then(() => {
             reloadServices()
@@ -194,6 +197,7 @@ function Articles() {
                             name="multi"
                             accept="image/*"
                             multiple
+                            required
                         />
                         <button className="article-button" type="submit">Agregar</button>
                       </form>
