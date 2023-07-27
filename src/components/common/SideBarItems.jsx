@@ -17,9 +17,11 @@ function SideBarItems() {
     return (
         <>
             <ul>
-                <li><a href="#" className="logo">
-                    <img src= {titi} alt="" />
-                </a></li>
+                <li className="logo">
+                    <Link to={"/dashboard"} >
+                        <img src= {titi} alt="pet" />
+                    </Link>
+                </li>
 
                 <li className={`op ${location.pathname === "/dashboard" ? "active" : ""}`}>
                     <Link to={"/dashboard"} >
