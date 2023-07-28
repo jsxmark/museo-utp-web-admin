@@ -60,11 +60,13 @@ function Users() {
                                     <td>{users.rol === 'ESTUD' ? 'Estudiante' :
                                         (users.rol === 'ADMIN' ? 'Administrador' : 'Otro rol')}
                                     </td>
-                                    {users.rol === "ESTUD" && (
+                                    {users.rol === "ESTUD" ? (
                                         <td>
                                             <button className="article-button-delete" onClick={() => handleDelete(users.id)}>Eliminar</button>
                                         </td>
-                                        )}
+                                        ) : (
+                                        <td></td>
+                                    )}
                                 </tr>
                             ))}
                             </tbody>
