@@ -57,7 +57,9 @@ function Users() {
                             {users.map((users) => (
                                 <tr key={users.id}>
                                     <td>{users.nombre}  {users.apellido}</td>
-                                    <td>{users.rol}</td>
+                                    <td>{users.rol === 'ESTUD' ? 'Estudiante' :
+                                        (users.rol === 'ADMIN' ? 'Administrador' : 'Otro rol')}
+                                    </td>
                                     {users.rol === "ESTUD" && (
                                         <td>
                                             <button className="article-button-delete" onClick={() => handleDelete(users.id)}>Eliminar</button>
