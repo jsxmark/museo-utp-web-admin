@@ -90,7 +90,7 @@ function Articles() {
                                     <th>Ubicacion</th>
                                     <th>Categoria</th>
                                     <th>Dueño</th>
-                                    <th className="justi">Descripcion</th>
+                                    <th>Descripcion</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -109,7 +109,7 @@ function Articles() {
                                     <td>{article.categoria}</td>
                                     <td>{article.dueno}</td>
                                     <td>
-                                        <div dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                        <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
                                     </td>
                                     <td>
                                         <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>

@@ -51,7 +51,7 @@ Bermellón #FF312E
 }
 
 .table {
-  height: 94vh;
+  height: 134vh;
   padding: 10px;
   background-color: #252525;
   backdrop-filter: blur(7px);
@@ -61,7 +61,7 @@ Bermellón #FF312E
 }
 
 .table_header {
-  height: 10%;
+  height: 6%;
   margin-bottom: 1px;
   background-color: #fff4;
   padding: 0.8rem 1rem;
@@ -70,7 +70,7 @@ Bermellón #FF312E
 }
 
 .table_sub-header {
-  height: 5%;
+  height: 3.5%;
   background-color: #daa641;
   padding: 0.8rem 1rem;
   border-radius: 0.8rem;
@@ -78,7 +78,7 @@ Bermellón #FF312E
 }
 
 .table_body {
-  height: 36vh;
+  height: 76vh;
   max-height: calc(89% - 0.8rem);
   background-color: #ffffff;
   margin: 0.8rem auto;
@@ -117,7 +117,34 @@ Bermellón #FF312E
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-/*-- estilos de Cuerpo de tabla para Faculties, Categories, Careers --*/
+/*-- estilos de Cuerpo de tabla para Faculties, Categories, Careers, Users --*/
+#t_b {
+  height: 94vh;
+  padding: 10px;
+  background-color: #252525;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0.4rem 0.8rem #daa641;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#t_h {
+  height: 9%;
+  margin-bottom: 1px;
+  background-color: #fff4;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #fff;
+}
+
+#t_s-h {
+  height: 5%;
+  background-color: #daa641;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #000000;
+}
+
 #t_body {
   height: 63vh;
   max-height: calc(89% - 0.8rem);
@@ -160,7 +187,7 @@ Bermellón #FF312E
 
 /*-- Estilos de Cuerpo de Tabla para Users --*/
 #t_bodyU {
-  height: 75vh;
+  height: 77vh;
   max-height: calc(89% - 0.8rem);
   background-color: #ffffff;
   margin: 0.8rem auto;
@@ -210,6 +237,10 @@ table td {
   border-left: 1px solid #fff;
   text-align: center;
   font-size: 13px;
+}
+
+table #justi {
+  text-align: justify;
 }
 
 /* Estilos para el efecto hover */

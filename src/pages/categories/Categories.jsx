@@ -54,11 +54,11 @@ function Categories() {
 
                 <SideBarResponsive />
                 
-                <main class="table">
-                    <section class="table_header">
+                <main class="table" id='t_b'>
+                    <section class="table_header" id='t_h'>
                         <h1>Lista de Categorías</h1>
                     </section>
-                    <section class="table_sub-header">
+                    <section class="table_sub-header" id='t_s-h'>
                         <h2>Categorías</h2>
                     </section>
                     <section class="table_body" id='t_body'>
@@ -82,7 +82,7 @@ function Categories() {
                         </table>
                     </section>
 
-                    <section class="table_sub-header">
+                    <section class="table_sub-header" id='t_s-h'>
                         <h2>Agregar Categoría</h2>
                     </section>
 
