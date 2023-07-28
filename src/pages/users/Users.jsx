@@ -49,16 +49,20 @@ function Users() {
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
+                                    <th>Tipo</th>
                                     <th>Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
                             {users.map((users) => (
                                 <tr key={users.id}>
-                                    <td>{users.nombre}</td>
-                                    <td>
-                                        <button className="article-button-delete" onClick={() => handleDelete(users.id)}>Eliminar</button>
-                                    </td>
+                                    <td>{users.nombre}  {users.apellido}</td>
+                                    <td>{users.rol}</td>
+                                    {users.rol === "ESTUD" && (
+                                        <td>
+                                            <button className="article-button-delete" onClick={() => handleDelete(users.id)}>Eliminar</button>
+                                        </td>
+                                        )}
                                 </tr>
                             ))}
                             </tbody>
