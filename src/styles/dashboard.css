@@ -20,7 +20,7 @@ body::-webkit-scrollbar {
   
 body::-webkit-scrollbar-thumb {
     border-radius: 0.5rem;
-    background-color: #000;
+    background-color: #0004;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -231,6 +231,7 @@ nav .fas, .fa-solid{
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);  
     transition-property: transform;
     transition-duration: 300ms;
+    overflow: auto;
     
 }
 .box h3{
@@ -265,19 +266,18 @@ nav .fas, .fa-solid{
     margin: -20px 20px 20px 0;
 }
 
-.box #container_img {
-    width: 10vw;
-    height: 10vw;
+.box .container {
+    width: 75vw;
     max-width: 120px;
     min-width: 100px;
+    height: 75vw;
     max-height: 120px;
     min-height: 100px;
     margin: auto;
 }
 
-.box #container_img img{
-    width: 100%;
-    height: 100%;
+.box .container img{
+    width: auto;
     border-radius: 5px;
     box-shadow: 0 3px 5px #000;
     float: right;
@@ -344,9 +344,9 @@ nav .fas, .fa-solid{
     }
 
     .box{
-        width: 50%;
+        width: 90%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row-reverse;
         align-items: center;
         justify-content: center;
     }
@@ -355,20 +355,22 @@ nav .fas, .fa-solid{
         order: 1;
     }
 
-    .box .container_img {
+    .box .container {
         width: 65vw;
         max-width: 150px;
         min-width: 120px;
         height: 65vw;
         max-height: 90px;
         min-height: 70px;
-        margin: 0 5px;
+        margin: auto;
     }
 
     .box img{
         margin-top: 1rem;
         order: 2;
         align-items: center;
+        margin: 5px;
+        padding: 5px;
     }
 
     .box .btn-edit{
