@@ -1,7 +1,8 @@
 /**Custom Properties**/
 :root{
-    --primario: #1073ba;
-    --secundario: #00da55; 
+    --primario: #DAA641;
+    --secundario: #ffffff; 
+    --tercero: #4b8eab;
     --text-color: #63686e; 
     --btn-color: #60388c; 
   }
@@ -22,9 +23,9 @@
   }
   
   /**Gradients**/
-  .degradado-verde{
+  .degradado-dorado{
       color: transparent;
-      background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%);
+      background: linear-gradient(to right, var(--primario) 0%, var(--secundario), var(--tercero) 100%);
       -webkit-background-clip: text;
   }
   /**left container**/
@@ -113,10 +114,11 @@
   }
   
   .btn-login{
-      padding: 1rem; 
-      background: linear-gradient(81.02deg, rgb(250, 85, 96) -23.47%, rgb(177, 75, 244) 45.52%, rgb(77, 145, 255) 114.8%);
+      padding: 1rem;
+      margin-top: 50px; 
+      background-color: #DAA641;
       font-weight: 900;
-      color: #fff;
+      color: #000;
       border-style: none;
       border-radius: 5px;
       cursor: pointer;

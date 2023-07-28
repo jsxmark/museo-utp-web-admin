@@ -14,7 +14,7 @@ const getUsers = async () => {
     }
 };
 
-const deleteUsers = async (iduser) => {
+const deleteUsers = async (idusers) => {
     try {
         const config = {
             headers: {
@@ -23,7 +23,7 @@ const deleteUsers = async (iduser) => {
                 'ngrok-skip-browser-warning': 'true',
             },
         };
-        return (await axios.delete(API_BASE_URL.concat('/usuarios/').concat(iduser), config)).data
+        return (await axios.delete(API_BASE_URL.concat('/usuarios/').concat(idusers), config)).data
     } catch (error) {
         throw new Error('Error en la solicitud de eliminacion de usuarios: '+error);
     }

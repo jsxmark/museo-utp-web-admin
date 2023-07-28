@@ -251,9 +251,21 @@ nav .fas, .fa-solid{
     float: right;
     margin: -20px 20px 20px 0;
 }
+
+.box .container {
+    width: 75vw;
+    max-width: 120px;
+    min-width: 100px;
+    height: 75vw;
+    max-height: 120px;
+    min-height: 100px;
+    margin: auto;
+}
+
 .box img{
-    width: 16rem;
+    width: auto;
     border-radius: 5px;
+    box-shadow: 0 3px 5px #000;
     float: right;
 }
 
@@ -328,10 +340,23 @@ nav .fas, .fa-solid{
         text-align: center;
         order: 1;
     }
+
+    .box .container {
+        width: 65vw;
+        max-width: 150px;
+        min-width: 120px;
+        height: 65vw;
+        max-height: 90px;
+        min-height: 70px;
+        margin: 0 5px;
+    }
+
     .box img{
         margin-top: 1rem;
         order: 2;
+        align-items: center;
     }
+
     .box .btn-edit{
         width: 50%;
         order: 3; 

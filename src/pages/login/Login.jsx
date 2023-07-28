@@ -49,11 +49,10 @@ function Login() {
             <div className="right-container-form-responsive flex-form">
                     {error && <div className= 'error-title'>{error}</div>}
                     <form className='login-form'onSubmit={handleSubmit}>
-                        <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
+                        <h2 className='login-text degradado-dorado'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
                         <input className='log-input' type="text" placeholder='Nombre de usuario' value={username} onChange={(event) => setUsername(event.target.value)}/>
                         <input className='log-input' type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
-                        <p className='signup-prompt'><Link to={"/login"}>¿Olvidó su contraseña?, pulse aquí</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>
                     </form>
                 </div>
@@ -62,11 +61,10 @@ function Login() {
                 <div className="right-container-form">
                     {error && <div className= 'error-title'>{error}</div>}
                     <form className='login-form' onSubmit={handleSubmit}>
-                        <h2 className='login-text degradado-verde'>Inicio de Sesión</h2>
+                        <h2 className='login-text degradado-dorado'>Inicio de Sesión</h2>
                         <p className='welcome-text'>¡Bienvenido de nuevo! Inicia sesión para acceder a tu cuenta</p>
                         <input className='log-input' type="text" placeholder='nombre de usuario' value={username} onChange={(event) => setUsername(event.target.value)}/>
                         <input className='log-input' type="password" placeholder='Contraseña' value={password} onChange={(event) => setPassword(event.target.value)}/>
-                        <p className='signup-prompt'><Link to={"/login"}>¿Olvidó su contraseña?, pulse aquí</Link></p>
                         <button className='btn-login' type='submit'>Iniciar Sesión</button>
                     </form>
                 </div>

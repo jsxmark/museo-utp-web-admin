@@ -1,7 +1,8 @@
 /**Custom Properties**/
 :root{
-    --primario: #1073ba;
-    --secundario: #00da55;
+    --primario: #DAA641;
+    --secundario: #ffffff; 
+    --tercero: #4b8eab;
     --text-color: #63686e;
 }
 /**Globals**/

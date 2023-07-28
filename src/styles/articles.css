@@ -158,6 +158,27 @@ Bermellón #FF312E
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+/*-- Estilos de Cuerpo de Tabla para Users --*/
+#t_bodyU {
+  height: 75vh;
+  max-height: calc(89% - 0.8rem);
+  background-color: #ffffff;
+  margin: 0.8rem auto;
+  border-radius: 0.6rem;
+  overflow: auto;
+}
+
+#t_bodyU::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+#t_bodyU::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
 /* Estilos para la tabla */
 table {
   width: 100%;
