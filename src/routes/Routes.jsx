@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from '../pages/login/Login';
-import Register from '../pages/register/Register';
+//import Register from '../pages/register/Register';
 import Dashboard from "../pages/dashboard/Dashboard";
 import Articles from "../pages/articles/Articles";
 import Categories from '../pages/categories/Categories';
@@ -29,10 +29,10 @@ const CustomRouters = () => {
             path: "/dashboard",
             element: <Dashboard />,
           },
-          {
+          /*{
             path: "/register",
             element: <Register />,
-          },
+          },*/
           {
             path: "/users",
             element: <Users />,
