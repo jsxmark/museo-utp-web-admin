@@ -4,9 +4,6 @@ import SideBarResponsive from '../../components/common/SideBarResponsive';
 import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import { toolbarOptions } from '../../utils/constants';
 
 function Articles() {
 
@@ -18,6 +15,7 @@ function Articles() {
     const [yearstate, setYear] = useState('');
     const [description, setDescription] = useState('');
     const [mapcategory, setMapCategory] = useState([]);
+    const [filtercategory, setFilterCategory] = useState('Almacenamiento');
 
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
@@ -28,9 +26,8 @@ function Articles() {
         reloadServices()
     }, []);
 
-    const handleQuillChange = (value) => {
+    const handleTextAreaChange = (value) => {
         setDescription(value);
-        document.getElementById('descripcionInput').value = value;
     };
 
     const handleFromSubmit = (event) => {
@@ -80,34 +77,65 @@ function Articles() {
                     </section>
                     <section className="table_sub-header">
                         <h2>Articulos</h2>
-                    </section>
+                  </section>
+                  <section>
+                    <p className="seleccione-filter">Seleccione: </p>
+                    <select
+                        className="select-articles"
+                        placeholder="Elija la facultad..."
+                        value={filtercategory}
+                        onChange={(event) => setFilterCategory(event.target.value)}>
+                        {mapcategory.map((mcategory) => (
+                            <option
+                                value={mcategory.nombre}
+                                key={mcategory.id}
+                                >
+                                Categoria: {mcategory.nombre}
+                            </option>
+                        ))}
+                    </select>
+                  </section>
                   <section className="table_body">
                         <table>
                             <thead>
                               <tr>
+                                <th>Foto</th>
                                 <th>Nombre</th>
                                 <th>Ubicacion</th>
                                 <th>Categoria</th>
                                 <th>Dueño</th>
                                 <th>Descripcion</th>
                                 <th>Acciones</th>
-                               </tr>
+                              </tr>
                             </thead>
                             <tbody>
-                            {articles.map((article) => (
-                                <tr key={article.id}>
-                                    <td>{article.nombre}</td>
-                                    <td>{article.ubicacion}</td>
-                                    <td>{article.categoria}</td>
-                                    <td>{article.dueno}</td>
-                                    <td>
-                                        <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
-                                    </td>
-                                    <td>
-                                        <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
-                                    </td>
-                                </tr>
-                            ))}
+                              {articles.filter((article) => article.categoria === filtercategory).length === 0 ? (
+                                    <h1>No hay artículos registrados</h1>
+                                ) : (
+                                    articles
+                                    .filter((article) => article.categoria === filtercategory)
+                                    .map((article) => (
+                                        <tr key={article.id}>
+                                            <td>
+                                                {article.fotos.length > 0 ? (
+                                                    <img src={article.fotos[0].url} alt="image-article" width="50" height="50" />
+                                                    ) : (
+                                                    <img src={ ImageNotFound } alt="not-found" width="50" height="50" />
+                                                )}
+                                            </td>
+                                            <td>{article.nombre}</td>
+                                            <td>{article.ubicacion}</td>
+                                            <td>{article.categoria}</td>
+                                            <td>{article.dueno}</td>
+                                            <td>
+                                                <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                            </td>
+                                            <td>
+                                                <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </section> 
@@ -172,23 +200,14 @@ function Articles() {
                             <h2>Descripción</h2>
                         </section>
                         <div className="editor-quill" name="descripcion">
-                              <ReactQuill
-                                  className="react-quill"
-                                  theme="snow"
-                                  value={description}
-                                  onChange={handleQuillChange}
-                                  modules={{
-                                    toolbar: toolbarOptions,
-                                }}
-                              />;
+                            <textarea
+                                className="article-ta"
+                                type="textarea"
+                                name="descripcion"
+                                value={description}
+                                onChange={(event) => setDescription(event.target.value)}
+                            />
                         </div>
-                        <input
-                            type="hidden"
-                            id="descripcionInput"
-                            name="descripcion"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
                         <input
                             className="article-input"
                             id='my-files'
