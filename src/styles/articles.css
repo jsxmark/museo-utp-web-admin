@@ -51,7 +51,7 @@ Bermellón #FF312E
 }
 
 .table {
-  height: 94vh;
+  height: 134vh;
   padding: 10px;
   background-color: #252525;
   backdrop-filter: blur(7px);
@@ -61,7 +61,7 @@ Bermellón #FF312E
 }
 
 .table_header {
-  height: 10%;
+  height: 6%;
   margin-bottom: 1px;
   background-color: #fff4;
   padding: 0.8rem 1rem;
@@ -70,7 +70,7 @@ Bermellón #FF312E
 }
 
 .table_sub-header {
-  height: 5%;
+  height: 3.5%;
   background-color: #daa641;
   padding: 0.8rem 1rem;
   border-radius: 0.8rem;
@@ -78,9 +78,9 @@ Bermellón #FF312E
 }
 
 .table_body {
-  height: 36vh;
+  height: 76vh;
   max-height: calc(89% - 0.8rem);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0.8rem auto;
   border-radius: 0.6rem;
   overflow: auto;
@@ -94,7 +94,7 @@ Bermellón #FF312E
 .table_body::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
   background-color: #0004;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .table_form {
@@ -117,11 +117,38 @@ Bermellón #FF312E
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-/*-- estilos de Cuerpo de tabla para Faculties, Categories, Careers --*/
+/*-- estilos de Cuerpo de tabla para Faculties, Categories, Careers, Users --*/
+#t_b {
+  height: 94vh;
+  padding: 10px;
+  background-color: #252525;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0.4rem 0.8rem #daa641;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#t_h {
+  height: 9%;
+  margin-bottom: 1px;
+  background-color: #fff4;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #fff;
+}
+
+#t_s-h {
+  height: 5%;
+  background-color: #daa641;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  color: #000000;
+}
+
 #t_body {
   height: 63vh;
   max-height: calc(89% - 0.8rem);
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0.8rem auto;
   border-radius: 0.6rem;
   overflow: auto;
@@ -135,7 +162,7 @@ Bermellón #FF312E
 #t_body::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
   background-color: #0004;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 #t_form {
@@ -158,6 +185,27 @@ Bermellón #FF312E
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+/*-- Estilos de Cuerpo de Tabla para Users --*/
+#t_bodyU {
+  height: 77vh;
+  max-height: calc(89% - 0.8rem);
+  background-color: #ffffff;
+  margin: 0.8rem auto;
+  border-radius: 0.6rem;
+  overflow: auto;
+}
+
+#t_bodyU::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+#t_bodyU::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
 /* Estilos para la tabla */
 table {
   width: 100%;
@@ -168,7 +216,8 @@ table {
 
 table th {
   background-color: rgb(49, 49, 49);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   color: #fff;
   font-weight: bold;
   font-size: 12px;
@@ -188,6 +237,10 @@ table td {
   border-left: 1px solid #fff;
   text-align: center;
   font-size: 13px;
+}
+
+table #justi {
+  text-align: justify;
 }
 
 /* Estilos para el efecto hover */
@@ -343,7 +396,7 @@ textarea:focus {
   margin-bottom: 1px;
   background-color: #daa641;
   padding: 0.8rem 1rem;
-  border-radius: 0.8rem .8rem 0 0;
+  border-radius: 0.8rem 0.8rem 0 0;
   color: #000000;
 }
 
@@ -359,4 +412,8 @@ textarea:focus {
 .react-quill {
   width: 80%;
   background-color: #e9e9e9;
+}
+
+.justi {
+  text-align: justify !important;
 }

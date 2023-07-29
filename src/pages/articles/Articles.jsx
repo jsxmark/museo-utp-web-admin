@@ -85,31 +85,23 @@ function Articles() {
                         <table>
                             <thead>
                               <tr>
-                                    <th>Foto</th>
-                                    <th>Nombre</th>
-                                    <th>Ubicacion</th>
-                                    <th>Categoria</th>
-                                    <th>Dueño</th>
-                                    <th>Descripcion</th>
-                                    <th>Acciones</th>
-                                </tr>
+                                <th>Nombre</th>
+                                <th>Ubicacion</th>
+                                <th>Categoria</th>
+                                <th>Dueño</th>
+                                <th>Descripcion</th>
+                                <th>Acciones</th>
+                               </tr>
                             </thead>
                             <tbody>
                             {articles.map((article) => (
                                 <tr key={article.id}>
-                                    <td>
-                                        {article.fotos.length > 0 ? (
-                                            <img src={article.fotos[0].url} alt="image-article" />
-                                            ) : (
-                                            <img src={ ImageNotFound } alt="not-found" width="60" height="60" />
-                                        )}
-                                    </td>
                                     <td>{article.nombre}</td>
                                     <td>{article.ubicacion}</td>
                                     <td>{article.categoria}</td>
                                     <td>{article.dueno}</td>
                                     <td>
-                                        <div dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                        <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
                                     </td>
                                     <td>
                                         <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
