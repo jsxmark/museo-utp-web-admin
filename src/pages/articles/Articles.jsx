@@ -4,6 +4,8 @@ import SideBarResponsive from '../../components/common/SideBarResponsive';
 import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
+import Modal from 'react-modal';
+import EditModal from '../../components/common/EditModal';
 
 function Articles() {
 
@@ -131,6 +133,7 @@ function Articles() {
                                                 <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
                                             </td>
                                             <td>
+                                                <button className="article-button-update" onClick={() => handleDelete(article.id)}>Actualizar</button>
                                                 <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
                                             </td>
                                         </tr>

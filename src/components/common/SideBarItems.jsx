@@ -5,6 +5,14 @@ import { useAuth } from '../../components/auth/AuthProvider';
 
 function SideBarItems() {
 
+    /* Recurso no utilizado
+    <li className={`op ${location.pathname === "/register" ? "active" : ""}`}>
+        <Link to={"/register"} >
+            <i className="fas fa-user"></i>
+            <span className="nav-item">Reg. Admin</span>
+        </Link>
+    </li>*/
+
     const auth = useAuth();
 
     const removeToken = (event) => {
@@ -27,13 +35,6 @@ function SideBarItems() {
                     <Link to={"/dashboard"} >
                         <i className="fas fa-home"></i>
                         <span className="nav-item">Inicio</span>
-                    </Link>
-                </li>
-
-                <li className={`op ${location.pathname === "/register" ? "active" : ""}`}>
-                    <Link to={"/register"} >
-                        <i className="fas fa-user"></i>
-                        <span className="nav-item">Reg. Admin</span>
                     </Link>
                 </li>
 

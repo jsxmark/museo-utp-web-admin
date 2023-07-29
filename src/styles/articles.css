@@ -284,6 +284,22 @@ table tr:hover td {
   background-color: #a11c1a;
 }
 
+.article-button-update {
+  padding: 4px 6px;
+  margin: 3px 5px;
+  background-color: #2e54ff;
+  color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-self: center;
+}
+
+.article-button-update:hover {
+  background-color: #0026ce;
+}
+
 /*.article-button.delete-button {
       background-color: #dc3545;
   }*/
