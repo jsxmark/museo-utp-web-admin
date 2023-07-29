@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
+import Modal from 'react-modal'
+import '../../styles/editmodal.css'
 
 const EditModal = ({ article, isOpen, onClose, onSave }) => {
   const [editedArticle, setEditedArticle] = useState(article);
@@ -15,19 +16,22 @@ const EditModal = ({ article, isOpen, onClose, onSave }) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-    >
-      <h2>Editar Artículo</h2>
-      <form>
+    <Modal isOpen={isOpen} onRequestClose={onClose} className="edit-modal">
+      <div className="edit-modal-content">
+        <h2>Editar Artículo</h2>
         {/* Aquí coloca los campos para editar los datos del artículo */}
-        <label>Nombre</label>
-        <input type="text" name="nombre" value={editedArticle.nombre} onChange={handleChange} />
+        {/* Ejemplo de un campo de edición */}
+        <input
+          type="text"
+          name="nombre"
+          value={editedArticle.nombre}
+          onChange={handleChange}
+        />
         {/* ... Otros campos ... */}
-        <button onClick={handleSave}>Guardar</button>
+
+        <button onClick={handleSave}>Guardar cambios</button>
         <button onClick={onClose}>Cancelar</button>
-      </form>
+      </div>
     </Modal>
   );
 };

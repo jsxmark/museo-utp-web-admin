@@ -18,6 +18,30 @@ function Articles() {
     const [description, setDescription] = useState('');
     const [mapcategory, setMapCategory] = useState([]);
     const [filtercategory, setFilterCategory] = useState('Almacenamiento');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedArticle, setSelectedArticle] = useState(null);
+
+    const openModal = (article) => {
+        setSelectedArticle(article);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setSelectedArticle(null);
+        setIsModalOpen(false);
+    };
+
+    const handleArticleSave = (editedArticle) => {
+    // Aquí puedes guardar los cambios del artículo editado en tu estado o realizar alguna acción en tu aplicación
+    // Por ejemplo, podrías actualizar el artículo en la base de datos o en el servidor
+
+    // Luego de guardar los cambios, puedes recargar los artículos actualizados
+    reloadServices();
+
+    // También, cierra la ventana modal para dejar de editar el artículo
+    closeModal();
+  };
+
 
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
@@ -133,8 +157,18 @@ function Articles() {
                                                 <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
                                             </td>
                                             <td>
-                                                <button className="article-button-update" onClick={() => handleDelete(article.id)}>Actualizar</button>
-                                                <button className="article-button-delete" onClick={() => handleDelete(article.id)}>Eliminar</button>
+                                                <button
+                                                    className="article-button-update"
+                                                    onClick={() => openModal(article)}
+                                                >
+                                                    Actualizar
+                                                </button>
+                                                <button
+                                                    className="article-button-delete"
+                                                    onClick={() => handleDelete(article.id)}
+                                                >
+                                                    Eliminar
+                                                </button>
                                             </td>
                                         </tr>
                                     ))
@@ -225,6 +259,14 @@ function Articles() {
                   </section>
               </main>
         </section>
+        {selectedArticle && (
+        <EditModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          article={selectedArticle}
+          onSave={handleArticleSave}
+        />
+      )}
     </div>
     );
 }
