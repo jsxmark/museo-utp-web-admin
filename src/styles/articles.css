@@ -51,7 +51,7 @@ Bermellón #FF312E
 }
 
 .table {
-  height: 134vh;
+  height: 152vh;
   padding: 10px;
   background-color: #252525;
   backdrop-filter: blur(7px);
@@ -98,7 +98,7 @@ Bermellón #FF312E
 }
 
 .table_form {
-  height: 33.5vh;
+  height: 37.5vh;
   max-height: calc(89% - 0.8rem);
   background-color: rgba(255, 255, 255, 0.452);
   margin: 0.8rem auto;
@@ -305,6 +305,12 @@ textarea {
   font-size: 12px;
 }
 
+.article-ta {
+  width: 80vw;
+  height: 100px;
+  resize: none;
+}
+
 .article-input:focus,
 textarea:focus {
   border-color: #daa641;
@@ -356,6 +362,12 @@ textarea:focus {
 
   .activeline3__bars-menu {
     transform: rotate(-45deg) translate(-4px, 2px);
+  }
+
+  .article-ta {
+    width: 80vw;
+    height: 50px;
+    resize: none;
   }
 }
 
