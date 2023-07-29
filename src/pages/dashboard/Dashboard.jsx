@@ -36,7 +36,7 @@ function Dashboard(){
       <section className="main">
         <SideBarResponsive />
         <section className="main-course">
-          <h1>Artículos de Museo Prueba</h1>
+          <h1>Artículos del Museo</h1>
              <div className="course-box">
                 <p className="seleccione-filter">Seleccione: </p>
                 <select
@@ -102,9 +102,9 @@ function Dashboard(){
         <section className="main-course">
           <h1>Carreras</h1>
           <div className="course-box">
-            <div className="course">
+            <div className="course course-careers">
               {careers.map((career) => (
-                <div key={career.id} className="box">
+                <div key={career.id} className="box box4">
                   <h3>{career.nombre}</h3>
                   <p className="name"><p className="box-text-bold">Facultad: </p>{career.facultad}</p>
                 </div>
