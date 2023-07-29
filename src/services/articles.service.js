@@ -28,14 +28,19 @@ const postArticle = async (formadata) => {
     }
 };
   
-  const updateArticle = async (id, article) => {
-    try {
-      const response = await axios.put(BASE_URL + `/articulos/${id}`, article);
-      return response.data;
+const updateArticle = async (id, formadataupdate) => {
+  try {
+      const config = {
+          headers: {
+          'x-token': localStorage.getItem('token'),
+          'Content-Type':'multipart/form-data'
+        },
+    };
+        return (await axios.put(API_BASE_URL.concat(`/articulos/${id}`), formadataupdate, config));
     } catch (error) {
-      throw new Error("Error al actualizar el artículo: " + error);
+        throw new Error('Error al actualizar el artículo: ' + error);
     }
-  };
+};
   
   const deleteArticle = async (idarticle) => {
       try {

@@ -4,7 +4,6 @@ import SideBarResponsive from '../../components/common/SideBarResponsive';
 import ImageNotFound from '../../assets/images/not-found-logo.png'
 import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
-import Modal from 'react-modal';
 import EditModal from '../../components/common/EditModal';
 
 function Articles() {
@@ -29,19 +28,8 @@ function Articles() {
     const closeModal = () => {
         setSelectedArticle(null);
         setIsModalOpen(false);
+        reloadServices()
     };
-
-    const handleArticleSave = (editedArticle) => {
-    // Aquí puedes guardar los cambios del artículo editado en tu estado o realizar alguna acción en tu aplicación
-    // Por ejemplo, podrías actualizar el artículo en la base de datos o en el servidor
-
-    // Luego de guardar los cambios, puedes recargar los artículos actualizados
-    reloadServices();
-
-    // También, cierra la ventana modal para dejar de editar el artículo
-    closeModal();
-  };
-
 
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
@@ -51,10 +39,6 @@ function Articles() {
     useEffect(() => {
         reloadServices()
     }, []);
-
-    const handleTextAreaChange = (value) => {
-        setDescription(value);
-    };
 
     const handleFromSubmit = (event) => {
         event.preventDefault();
@@ -264,7 +248,6 @@ function Articles() {
           isOpen={isModalOpen}
           onClose={closeModal}
           article={selectedArticle}
-          onSave={handleArticleSave}
         />
       )}
     </div>

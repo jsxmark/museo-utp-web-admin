@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.63);
+  background-color: rgba(0, 0, 0, 0.432);
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -13,12 +13,12 @@
 }
 
 .edit-modal-content {
-  background: black;
+  background-color: rgba(0, 0, 0, 0.918);
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 8px;
   width: 100em;
-  height: 80em;
+  height: 50em;
   padding: 20px;
 }
 
