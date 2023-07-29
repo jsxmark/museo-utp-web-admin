@@ -255,11 +255,6 @@ nav .fas,
   text-align: center;
 }
 
-.box .name {
-  margin: 15px;
-  text-align: left;
-}
-
 .box:hover {
   transform: scale(1.03);
 }
@@ -363,13 +358,35 @@ nav .fas,
     align-items: center;
   }
 
-  .box {
+  .box1 {
     width: 90%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 0; 
   }
+
+  .name{
+    order: 1;
+  }
+
+  .data{
+    order: 2; 
+  }
+
+  .category-sub{
+    order: 3; 
+  }
+
+  .location{
+    order: 4; 
+  }
+
+  .owner{
+    order: 5; 
+  }
+
   .box h3 {
     text-align: center;
     order: 1;

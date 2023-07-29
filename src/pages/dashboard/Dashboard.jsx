@@ -60,12 +60,12 @@ function Dashboard(){
                     articles
                       .filter((article) => article.categoria === filtercategory)
                       .map((article) => (
-                        <div key={article.id} className="box">
-                          <h3>{article.nombre}</h3><br></br>
-                          <p className="box-text-bold">Datos del Articulo</p><br></br>
-                          <p><p className="box-text-bold">Categoria: </p>{article.categoria}</p>
-                          <p><p className="box-text-bold">Localización: </p>{article.ubicacion}</p>
-                          <p><p className="box-text-bold">Dueño: </p>{article.dueno}</p>
+                        <div key={article.id} className="box box1">
+                          <h3 className='box-text-bold name'>{article.nombre}</h3><br></br>
+                          <p className="box-text-bold data">Datos del Articulo</p><br></br>
+                          <p className='category-sub'><p className="box-text-bold">Categoria: </p>{article.categoria}</p>
+                          <p className='location'><p className="box-text-bold">Localización: </p>{article.ubicacion}</p>
+                          <p className='owner'><p className="box-text-bold">Dueño: </p>{article.dueno}</p>
                         </div>
                       ))
                   )}
