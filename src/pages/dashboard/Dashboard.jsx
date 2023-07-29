@@ -103,40 +103,25 @@ function Dashboard(){
             </div>
           </div>
         </section>
+        
+    <section className="main-course">
+      <h1>Facultades</h1>
+      <div className="course-box">
+        
+        <select
+          className="select-articles"
+          value={filterFaculty}
+          onChange={(event) => setFilterFaculty(event.target.value)}
+        >
+          <option value="">Todas las facultades</option>
+          {faculties.map((faculty) => (
+            <option value={faculty.nombre} key={faculty.id}>
+              {faculty.nombre}
+            </option>
+          ))}
+        </select>
 
-        {/* <section className="main-course">
-          <h1>Carreras</h1>
-          <div className="course-box">
-            <div className="course course-careers">
-              {careers.map((career) => (
-                <div key={career.id} className="box box4">
-                  <h3>{career.nombre}</h3>
-                  <p className="name"><p className="box-text-bold">Facultad: </p>{career.facultad}</p>
-                </div>
-                    ))}
-            </div>
-          </div>
-        </section> */}
-
-
-<section className="main-course">
-  <h1>Facultades</h1>
-  <div className="course-box">
-    {/* Agrega el select para filtrar por facultad */}
-    <select
-      className="select-articles"
-      value={filterFaculty}
-      onChange={(event) => setFilterFaculty(event.target.value)}
-    >
-      <option value="">Todas las facultades</option>
-      {faculties.map((faculty) => (
-        <option value={faculty.nombre} key={faculty.id}>
-          {faculty.nombre}
-        </option>
-      ))}
-    </select>
-
-    {/* Muestra las carreras filtradas por facultad */}
+    
     <div className="course">
       {careers
         .filter((career) =>
