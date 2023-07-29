@@ -8,13 +8,16 @@ import { CategoriesService } from '../../services/categories.service';
 import { FacultiesService } from '../../services/faculties.service';
 import { CareersService } from '../../services/careers.service';
 
+
 function Dashboard(){
     const [categories, setCategories] = useState([]);
     const [filtercategory, setFilterCategory] = useState('Almacenamiento');
+    const [filterFaculty, setFilterFaculty] = useState('');
     const [articles, setArticles] = useState([]);
     const [faculties, setFaculties] = useState([]);
     const [careers, setCareers] = useState([]);
-  
+    
+
     function reloadServices() {
           ArticlesService.getArticles().then((data) => setArticles(data));
           CategoriesService.getCategories().then((data) => setCategories(data));
@@ -29,6 +32,8 @@ function Dashboard(){
     useEffect(() => {
       console.log("Esto es del filter: "+filtercategory)
     });
+
+    
     
      return (
     <div className="container">
@@ -99,7 +104,7 @@ function Dashboard(){
           </div>
         </section>
 
-        <section className="main-course">
+        {/* <section className="main-course">
           <h1>Carreras</h1>
           <div className="course-box">
             <div className="course course-careers">
@@ -111,7 +116,46 @@ function Dashboard(){
                     ))}
             </div>
           </div>
-        </section>
+        </section> */}
+
+
+<section className="main-course">
+  <h1>Facultades</h1>
+  <div className="course-box">
+    {/* Agrega el select para filtrar por facultad */}
+    <select
+      className="select-articles"
+      value={filterFaculty}
+      onChange={(event) => setFilterFaculty(event.target.value)}
+    >
+      <option value="">Todas las facultades</option>
+      {faculties.map((faculty) => (
+        <option value={faculty.nombre} key={faculty.id}>
+          {faculty.nombre}
+        </option>
+      ))}
+    </select>
+
+    {/* Muestra las carreras filtradas por facultad */}
+    <div className="course">
+      {careers
+        .filter((career) =>
+          !filterFaculty || career.facultad === filterFaculty
+        )
+        .map((career) => (
+          <div key={career.id} className="box box4">
+            <h3>{career.nombre}</h3>
+            <p className="name">
+              <span className="box-text-bold">Facultad: </span>
+              {career.facultad}
+            </p>
+          </div>
+        ))}
+    </div>
+  </div>
+</section>
+
+        
       </section>
     </div>
   );
