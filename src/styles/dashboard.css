@@ -254,10 +254,7 @@ nav .fas,
 
 .box4{
   width: 46%;
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .box-text-bold {
@@ -318,7 +315,7 @@ nav .fas,
   float: right;
 }
 
-@media (max-width: 1087px) {
+@media (min-width: 280px) and (max-width: 420px) {
   .nav-sidebar {
     display: none;
   }
@@ -376,13 +373,41 @@ nav .fas,
   }
 
   .box1 {
-    
+    width: 70%;
+    padding: 15px 10px 15px 10px;
+    text-align: center;
+  }
+
+  .box2 {
+    width: 70%;
+    height: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 0; 
+    text-align: center;
   }
+
+  .box3 {
+    width: 70%;
+    height: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .box4 {
+    width: 70%;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   .name{
     order: 1;
   }
