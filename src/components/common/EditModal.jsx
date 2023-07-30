@@ -11,7 +11,7 @@ const EditModal = ({ article, isOpen, onClose }) => {
   const [yearstate, setYear] = useState(article.year);
   const [description, setDescription] = useState(article.descripcion);
   const [filtercategory, setFilterCategory] = useState(article.categoria);
-  const [idfotos, setIdFotos] = useState([]);
+  const [idmultimedios, setIdMultimedios] = useState(mapearMultimedios());
   const [mapcategory, setMapCategory] = useState([]);
   const [deletecounter, setDeleteCounter] = useState(0);
 
@@ -28,29 +28,49 @@ const EditModal = ({ article, isOpen, onClose }) => {
   };
 
     const addIdDelete = (addId) => {
-       if (!idfotos.includes(addId)) {
-         setIdFotos([...idfotos, addId]);
+       if (!idmultimedios.includes(addId)) {
+         setIdMultimedios([...idmultimedios, addId]);
          setDeleteCounter(deletecounter + 1);
-      }else {
-         setIdFotos(idfotos.filter((id) => id !== addId));
-         setDeleteCounter(deletecounter - 1);
-      }
-    };
+        }else {
+          setIdMultimedios(idmultimedios.filter((id) => id !== addId));
+          setDeleteCounter(deletecounter - 1);
+        }
+  };
 
-  function allArray() {
-    let arr1 = [];
-    for (const foto of mapfotos) {
-      arr1.push(foto.id);
-    }
-    return arr1;
-  }
+  function mapearMultimedios() {
+      let arr1 = [];
+
+      if (article.fotos.length > 0) {
+        for (const foto of article.fotos) {
+          arr1.push(foto.id);
+        }
+      }
+
+      if (Array.isArray(article.videos) && article.videos.length > 0) {
+        for (const video of article.videos) {
+          arr1.push(video.id);
+        }
+      } else {
+        
+      }
+
+      if (Array.isArray(article.audios) && article.audios.length > 0) {
+        for (const audio of article.audios) {
+          arr1.push(audio.id);
+        }
+      } else {
+        
+      }
+  return arr1;
+}
+
   
   useEffect(() => {
-      CategoriesService.getCategories().then((data) => setMapCategory(data));
+    CategoriesService.getCategories().then((data) => setMapCategory(data));
   }, []);
 
   useEffect(() => {
-      console.log(JSON.stringify(idfotos))
+      console.log(JSON.stringify(idmultimedios))
   });
 
 
@@ -124,7 +144,7 @@ const EditModal = ({ article, isOpen, onClose }) => {
           <input
             type='hidden'
             name="articulosBorrarId"   
-            value={JSON.stringify(idfotos)}
+            value={JSON.stringify(idmultimedios)}
           />
             <input
                 className="article-input"
@@ -156,7 +176,7 @@ const EditModal = ({ article, isOpen, onClose }) => {
                         <td>
                           <input
                             type="checkbox"
-                            checked={idfotos.includes(foto.id)}
+                            checked={idmultimedios.includes(foto.id)}
                             onChange={() => addIdDelete(foto.id)}
                           />
                         </td>
@@ -164,9 +184,9 @@ const EditModal = ({ article, isOpen, onClose }) => {
                     </tr>
                   ))}
                 </tbody>
-          </table>
+            </table>
           
-          <table>
+              <table>
                 <thead>
                   <tr>
                     <th>Video</th>
@@ -174,22 +194,24 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {article.videos.map((video) => (
-                    <tr key={video.id}>
-                      <td>
-                        <img src={video.url} alt={`video-${foto.id}`} width="50" height="50" />
-                      </td>
-                      <td>
+                {article.videos.length === 0 ? (
+                    <p>No hay videos disponibles.</p>
+                  ) : (
+                    article.videos.map((video) => (
+                      <tr key={video.id}>
+                        <td>
+                          <img src={video.url} alt={`video-${video.id}`} width="50" height="50" />
+                        </td>
                         <td>
                           <input
                             type="checkbox"
-                            checked={idfotos.includes(foto.id)}
-                            onChange={() => addIdDelete(foto.id)}
+                            checked={idmultimedios.includes(video.id)}
+                            onChange={() => addIdDelete(video.id)}
                           />
                         </td>
-                      </td>
-                    </tr>
-                  ))}
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </section>
