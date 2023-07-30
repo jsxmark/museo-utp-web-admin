@@ -75,11 +75,11 @@ function Dashboard(){
           <h1>Categorías</h1>
           <div className="course-box">
             <div className="course">
-              {categories.map((category) => (
-              <div key={category.id} className="box box2">
-                <h3>{category.nombre}</h3>
-              </div>
-                ))}
+            {categories.map((category) => (
+              <div key={category.id} className="box">
+              <h3>{category.nombre}</h3>
+        </div>
+               ))}
             </div>
           </div>
         </section>
@@ -89,7 +89,7 @@ function Dashboard(){
           <div className="course-box">
             <div className="course">
             {faculties.map((faculty) => (
-        <div key={faculty.id} className="box box3">
+        <div key={faculty.id} className="box">
           <h3>{faculty.nombre}</h3>
         </div>
       ))}
