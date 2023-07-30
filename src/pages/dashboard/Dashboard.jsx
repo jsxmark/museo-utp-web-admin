@@ -16,25 +16,18 @@ function Dashboard(){
     const [articles, setArticles] = useState([]);
     const [faculties, setFaculties] = useState([]);
     const [careers, setCareers] = useState([]);
-    
-
+  
     function reloadServices() {
-          ArticlesService.getArticles().then((data) => setArticles(data));
-          CategoriesService.getCategories().then((data) => setCategories(data));
-          FacultiesService.getFaculties().then((data) => setFaculties(data));
-          CareersService.getCareers().then((data) => setCareers(data));
+      ArticlesService.getArticles().then((data) => setArticles(data));
+      CategoriesService.getCategories().then((data) => setCategories(data));
+      FacultiesService.getFaculties().then((data) => setFaculties(data));
+      CareersService.getCareers().then((data) => setCareers(data));
     }
   
     useEffect(() => {
       reloadServices();
     }, []);
-  
-    useEffect(() => {
-      console.log("Esto es del filter: "+filtercategory)
-    });
 
-    
-    
      return (
     <div className="container">
       <SideBar />

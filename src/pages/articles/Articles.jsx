@@ -31,10 +31,6 @@ function Articles() {
         reloadServices()
     };
 
-    function loadArticleByid() {
-        
-    }
-
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
         CategoriesService.getCategories().then((data) => setMapCategory(data));
