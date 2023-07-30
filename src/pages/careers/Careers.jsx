@@ -13,7 +13,10 @@ function Careers() {
     const [faculties, setFaculties] = useState([]);
     const [mapfaculties, setMapFaculties] = useState([]);
     function reloadServices() {
-        FacultiesService.getFaculties().then((data) => setMapFaculties(data));
+        FacultiesService.getFaculties().then((data) => {
+            setMapFaculties(data)
+            if (data.length > 0) setFaculties(data[0].id)
+        })
         CareersService.getCareers().then((data) => setCareers(data));
     }
 
@@ -105,7 +108,7 @@ function Careers() {
                             />
                             <select
                                 className="select-articles"
-                                name="facultad"
+                                name="facultad_id"
                                 required
                                 placeholder="Elija la facultad..."
                                 value={faculties}
