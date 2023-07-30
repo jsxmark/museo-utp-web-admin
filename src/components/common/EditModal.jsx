@@ -11,9 +11,10 @@ const EditModal = ({ article, isOpen, onClose }) => {
   const [yearstate, setYear] = useState(article.year);
   const [description, setDescription] = useState(article.descripcion);
   const [filtercategory, setFilterCategory] = useState(article.categoria);
-  const [idmultimedios, setIdMultimedios] = useState(mapearMultimedios());
   const [mapcategory, setMapCategory] = useState([]);
   const [deletecounter, setDeleteCounter] = useState(0);
+  //const [idmultimedios, setIdMultimedios] = useState(mapearMultimedios());
+  const [idtotmultimedios, setIdTotMultimedios] = useState([]);
 
   const handleFromSubmit = (event) => {
         event.preventDefault();
@@ -28,22 +29,24 @@ const EditModal = ({ article, isOpen, onClose }) => {
   };
 
     const addIdDelete = (addId) => {
-       if (!idmultimedios.includes(addId)) {
-         setIdMultimedios([...idmultimedios, addId]);
-         setDeleteCounter(deletecounter + 1);
-        }else {
-          setIdMultimedios(idmultimedios.filter((id) => id !== addId));
-          setDeleteCounter(deletecounter - 1);
-        }
+      if (!idtotmultimedios.includes(addId)) {
+        setIdTotMultimedios([...idtotmultimedios, addId]);
+        setDeleteCounter(deletecounter + 1);
+      }else {
+        setIdTotMultimedios(idtotmultimedios.filter((id) => id !== addId));
+        setDeleteCounter(deletecounter - 1);
+      }
   };
 
-  function mapearMultimedios() {
+  /*function mapearMultimedios() {
       let arr1 = [];
-
-      if (article.fotos.length > 0) {
+    
+      if (Array.isArray(article.fotos) && article.fotos.length > 0) {
         for (const foto of article.fotos) {
           arr1.push(foto.id);
         }
+      } else {
+        
       }
 
       if (Array.isArray(article.videos) && article.videos.length > 0) {
@@ -62,17 +65,12 @@ const EditModal = ({ article, isOpen, onClose }) => {
         
       }
   return arr1;
-}
+}*/
 
   
   useEffect(() => {
     CategoriesService.getCategories().then((data) => setMapCategory(data));
   }, []);
-
-  useEffect(() => {
-      console.log(JSON.stringify(idmultimedios))
-  });
-
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} className="edit-modal">
@@ -144,7 +142,7 @@ const EditModal = ({ article, isOpen, onClose }) => {
           <input
             type='hidden'
             name="articulosBorrarId"   
-            value={JSON.stringify(idmultimedios)}
+            value={JSON.stringify(idtotmultimedios)}
           />
             <input
                 className="article-input"
@@ -159,7 +157,7 @@ const EditModal = ({ article, isOpen, onClose }) => {
         </form>
         <section>
           <h1>Cantidad de multimedios a eliminar: { deletecounter }</h1>
-              <table>
+            <table>
                 <thead>
                   <tr>
                     <th>Foto</th>
@@ -167,26 +165,28 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {article.fotos.map((foto) => (
+                {Array.isArray(article.fotos) && article.fotos.length > 0 ? (
+                  article.fotos.map((foto) => (
                     <tr key={foto.id}>
                       <td>
                         <img src={foto.url} alt={`foto-${foto.id}`} width="50" height="50" />
                       </td>
                       <td>
-                        <td>
-                          <input
-                            type="checkbox"
-                            checked={idmultimedios.includes(foto.id)}
-                            onChange={() => addIdDelete(foto.id)}
-                          />
-                        </td>
+                        <input
+                          type="checkbox"
+                          checked={idtotmultimedios.includes(foto.id)}
+                          onChange={() => addIdDelete(foto.id)}
+                        />
                       </td>
                     </tr>
-                  ))}
-                </tbody>
+                  ))
+                ) : (
+                  <p>No hay fotos disponibles.</p>
+                )}
+              </tbody>
             </table>
           
-              <table>
+            <table>
                 <thead>
                   <tr>
                     <th>Video</th>
@@ -194,27 +194,58 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {article.videos.length === 0 ? (
-                    <p>No hay videos disponibles.</p>
-                  ) : (
-                    article.videos.map((video) => (
-                      <tr key={video.id}>
-                        <td>
-                          <img src={video.url} alt={`video-${video.id}`} width="50" height="50" />
-                        </td>
-                        <td>
-                          <input
-                            type="checkbox"
-                            checked={idmultimedios.includes(video.id)}
-                            onChange={() => addIdDelete(video.id)}
-                          />
-                        </td>
-                      </tr>
-                    ))
-                  )}
+                {Array.isArray(article.videos) && article.videos.length > 0 ? (
+                  article.videos.map((video) => (
+                    <tr key={video.id}>
+                      <td>
+                        <img src={video.url} alt={`video-${video.id}`} width="50" height="50" />
+                      </td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={idtotmultimedios.includes(video.id)}
+                          onChange={() => addIdDelete(video.id)}
+                        />
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>No hay videos disponibles.</p>
+                )}
                 </tbody>
-              </table>
-            </section>
+            </table>
+          
+            <table>
+                <thead>
+                  <tr>
+                    <th>Audio</th>
+                    <th>Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {Array.isArray(article.audios) && article.audios.length > 0 ? (
+                  article.audios.map((audio) => (
+                    <tr key={audio.id}>
+                      <td>
+                        <audio controls>
+                          <source src={audio.url} type="audio/mpeg" />
+                        </audio>
+                      </td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={idtotmultimedios.includes(audio.id)}
+                          onChange={() => addIdDelete(audio.id)}
+                        />
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <p>No hay audios disponibles.</p>
+                )}
+                </tbody>
+            </table>
+        </section>
       </div>
     </Modal>
   );

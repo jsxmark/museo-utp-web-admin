@@ -236,7 +236,7 @@ function Articles() {
                             name="multimedios"
                             accept=".jpg, .jpeg, .png, .gif, .mp4, .mp3, audio/*, video/*"
                             multiple
-                            required
+                            
                         />
                         <button className="article-button" type="submit">Agregar</button>
                       </form>
