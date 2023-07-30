@@ -31,6 +31,10 @@ function Articles() {
         reloadServices()
     };
 
+    function loadArticleByid() {
+        
+    }
+
     function reloadServices() {
         ArticlesService.getArticles().then((data) => setArticles(data));
         CategoriesService.getCategories().then((data) => setMapCategory(data));
@@ -143,7 +147,7 @@ function Articles() {
                                             <td>
                                                 <button
                                                     className="article-button-update"
-                                                    onClick={() => openModal(article)}
+                                                    onClick={() => openModal(article.id)}
                                                 >
                                                     Actualizar
                                                 </button>

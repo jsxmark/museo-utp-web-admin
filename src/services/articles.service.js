@@ -14,6 +14,19 @@ const getArticles = async () => {
   }
 };
 
+const getArticlesById = async (id) => {
+  try {
+    const config = {
+          headers: {
+              'ngrok-skip-browser-warning': 'true',
+          },
+    };
+     return (await axios.get(API_BASE_URL.concat('/articulos/').concat(id), config)).data
+  } catch (error) {
+    throw new Error("Error en la solicitud de búsqueda de artículos: " + error);
+  }
+};
+
 const postArticle = async (formadata) => {
   try {
       const config = {
@@ -59,6 +72,7 @@ const updateArticle = async (id, formadataupdate) => {
 
 export const ArticlesService = {
   getArticles,
+  getArticlesById,
   postArticle,
   updateArticle,
   deleteArticle,

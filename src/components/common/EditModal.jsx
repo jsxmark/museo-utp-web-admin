@@ -5,28 +5,40 @@ import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
 
 const EditModal = ({ article, isOpen, onClose }) => {
-  const [namearticle, setNameArticle] = useState(article.nombre);
-  const [location, setLocation] = useState(article.ubicacion);
-  const [duenostate, setDueno] = useState(article.dueno);
-  const [yearstate, setYear] = useState(article.year);
-  const [description, setDescription] = useState(article.descripcion);
-  const [filtercategory, setFilterCategory] = useState(article.categoria);
+  const [multimedios, setMultimedios] = useState([]);
+  const [namearticle, setNameArticle] = useState("");
+  const [location, setLocation] = useState("");
+  const [duenostate, setDueno] = useState("");
+  const [yearstate, setYear] = useState("");
+  const [description, setDescription] = useState("");
+  const [filtercategory, setFilterCategory] = useState("");
   const [mapcategory, setMapCategory] = useState([]);
   const [deletecounter, setDeleteCounter] = useState(0);
-  //const [idmultimedios, setIdMultimedios] = useState(mapearMultimedios());
   const [idtotmultimedios, setIdTotMultimedios] = useState([]);
 
   const handleFromSubmit = (event) => {
-        event.preventDefault();
-        ArticlesService.updateArticle(article.id, new FormData(event.currentTarget))
-        .then(() => {
-          reloadServices()
-          onClose();
-        })
-        .catch(() => {
-            alert('Error en la solicitud de insercion del articulo. Por favor, inténtalo nuevamente.')
-        });
+    event.preventDefault();
+    ArticlesService.updateArticle(article, new FormData(event.currentTarget))
+    .then(() => {
+      reloadServices()
+      onClose();
+    })
+    .catch(() => {
+        alert('Error en la solicitud de insercion del articulo. Por favor, inténtalo nuevamente.')
+    });
   };
+
+    async function reloadServices() {
+      await ArticlesService.getArticlesById(article).then((data) => {
+      setMultimedios(data);
+      setNameArticle(data.nombre);
+      setLocation(data.ubicacion);
+      setDueno(data.dueno);
+      setYear(data.year);
+      setDescription(data.descripcion);
+      })
+      await CategoriesService.getCategories().then((data) => setMapCategory(data))
+    }
 
     const addIdDelete = (addId) => {
       if (!idtotmultimedios.includes(addId)) {
@@ -36,40 +48,10 @@ const EditModal = ({ article, isOpen, onClose }) => {
         setIdTotMultimedios(idtotmultimedios.filter((id) => id !== addId));
         setDeleteCounter(deletecounter - 1);
       }
-  };
+    };
 
-  /*function mapearMultimedios() {
-      let arr1 = [];
-    
-      if (Array.isArray(article.fotos) && article.fotos.length > 0) {
-        for (const foto of article.fotos) {
-          arr1.push(foto.id);
-        }
-      } else {
-        
-      }
-
-      if (Array.isArray(article.videos) && article.videos.length > 0) {
-        for (const video of article.videos) {
-          arr1.push(video.id);
-        }
-      } else {
-        
-      }
-
-      if (Array.isArray(article.audios) && article.audios.length > 0) {
-        for (const audio of article.audios) {
-          arr1.push(audio.id);
-        }
-      } else {
-        
-      }
-  return arr1;
-}*/
-
-  
   useEffect(() => {
-    CategoriesService.getCategories().then((data) => setMapCategory(data));
+    reloadServices()
   }, []);
 
   return (
@@ -165,8 +147,8 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {Array.isArray(article.fotos) && article.fotos.length > 0 ? (
-                  article.fotos.map((foto) => (
+                {Array.isArray(multimedios.fotos) && multimedios.fotos.length > 0 ? (
+                  multimedios.fotos.map((foto) => (
                     <tr key={foto.id}>
                       <td>
                         <img src={foto.url} alt={`foto-${foto.id}`} width="50" height="50" />
@@ -194,11 +176,13 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {Array.isArray(article.videos) && article.videos.length > 0 ? (
-                  article.videos.map((video) => (
+                {Array.isArray(multimedios.videos) && multimedios.videos.length > 0 ? (
+                  multimedios.videos.map((video) => (
                     <tr key={video.id}>
                       <td>
-                        <img src={video.url} alt={`video-${video.id}`} width="50" height="50" />
+                        <video width="100" height="100" controls>
+                          <source src={video.url} type="video/mp4" />
+                        </video>
                       </td>
                       <td>
                         <input
@@ -223,8 +207,8 @@ const EditModal = ({ article, isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                {Array.isArray(article.audios) && article.audios.length > 0 ? (
-                  article.audios.map((audio) => (
+                {Array.isArray(multimedios.audios) && multimedios.audios.length > 0 ? (
+                  multimedios.audios.map((audio) => (
                     <tr key={audio.id}>
                       <td>
                         <audio controls>
