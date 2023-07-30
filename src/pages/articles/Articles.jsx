@@ -76,6 +76,14 @@ function Articles() {
         }  
     }
 
+    const [showFullDescription, setShowFullDescription] = useState({});
+    const toggleShowFullDescription = (id) => {
+        setShowFullDescription((prevState) => ({
+          ...prevState,
+          [id]: !prevState[id],
+        }));
+      };
+
   return (
     <div className='container'>
         <SideBar />
@@ -138,7 +146,21 @@ function Articles() {
                                             <td>{article.categoria}</td>
                                             <td>{article.dueno}</td>
                                             <td>
-                                                <div id='justi' dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                            {showFullDescription[article.id] ? (
+                                            <div dangerouslySetInnerHTML={{ __html: article.descripcion }} />
+                                            ) : (
+                                            <div
+                                                id={`justi-${article.id}`}
+                                                dangerouslySetInnerHTML={{
+                                                __html: article.descripcion.slice(0, 200) + "...",
+                                                }}
+                                            />
+                                            )}
+                                            {article.descripcion.length > 100 && (
+                                            <button className='read-more-button' onClick={() => toggleShowFullDescription(article.id)}>
+                                                {showFullDescription[article.id] ? "Ver menos" : "Ver más"}
+                                            </button>
+                                            )}
                                             </td>
                                             <td>
                                                 <button
