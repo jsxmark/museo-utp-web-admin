@@ -57,7 +57,9 @@ const EditModal = ({ article, isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} className="edit-modal">
       <div className="edit-modal-content">
-        <h2>Editar Artículo</h2>
+        <section className="title_sub-header">
+          <h2>Editar Artículo</h2>
+        </section>
           <form onSubmit={handleFromSubmit}>
             <input
                 className="article-input"
@@ -114,13 +116,13 @@ const EditModal = ({ article, isOpen, onClose }) => {
             </section>
             <div className="editor-quill" name="descripcion">
                 <textarea
-                    className="article-ta"
+                    className="article-taM"
                     type="textarea"
                     name="descripcion"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
                 />
-          </div>
+            </div>
           <input
             type='hidden'
             name="articulosBorrarId"   
@@ -134,11 +136,13 @@ const EditModal = ({ article, isOpen, onClose }) => {
                 accept=".jpg, .jpeg, .png, .gif, .mp4, .mp3, audio/*, video/*"
                 multiple
             />
-            <button className="article-button" type="submit">Guardar Cambios</button>
+            <button className="article-buttonM" type="submit">Guardar Cambios</button>
             <button className="article-button" onClick={onClose}>Cancelar</button>
         </form>
         <section>
-          <h1>Cantidad de multimedios a eliminar: { deletecounter }</h1>
+          <section className="title_header">
+            <h1>Cantidad de multimedios a eliminar: { deletecounter }</h1>
+          </section>
             <table>
                 <thead>
                   <tr>
