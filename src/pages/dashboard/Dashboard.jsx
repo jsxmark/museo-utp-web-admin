@@ -98,7 +98,7 @@ function Dashboard(){
         </section>
         
     <section className="main-course">
-      <h1>Facultades</h1>
+      <h1>Carreras</h1>
       <div className="course-box">
         
         <select
