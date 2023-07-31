@@ -80,6 +80,7 @@ function Dashboard(){
                   .filter((article) => article.categoria === filtercategory)
                   .map((article) => (
                     <div key={article.id} className="box box1">
+                      <section className='info'>
                       <h3 className="box-text-bold name">{article.nombre}</h3>
                       <br></br>
                       <p className="box-text-bold data">Datos del Articulo</p>
@@ -96,10 +97,14 @@ function Dashboard(){
                         <p className="box-text-bold">Dueño: </p>
                         {article.dueno}
                       </p>
+                      </section>
                       <p className="owner">
                         <p className="box-text-bold">Cantidad de Visitas: </p>
-                        {views[article.id] || 0} {/* Obtener las vistas desde el estado views */}
+                          <section className='C_V'>
+                            {views[article.id] || 0} {/* Obtener las vistas desde el estado views */}
+                          </section>
                       </p>
+                      
                     </div>
                   ))
               )}
