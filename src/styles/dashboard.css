@@ -300,6 +300,7 @@ nav .fas,
 
 .info {
   float: right;
+  width: 170px;
 }
 
 .box_c .box-text-bold {
@@ -476,7 +477,7 @@ nav .fas,
     float: none;
   }
 
-  .box_c {
+  .box_c .box-text-bold{
     margin: 10px;
     display: flex;
     text-align: center;
