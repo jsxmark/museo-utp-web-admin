@@ -7,7 +7,7 @@ import { ArticlesService } from '../../services/articles.service';
 import { CategoriesService } from '../../services/categories.service';
 import { FacultiesService } from '../../services/faculties.service';
 import { CareersService } from '../../services/careers.service';
-
+import { ViewsService } from '../../services/views.service';
 
 function Dashboard(){
     const [categories, setCategories] = useState([]);
@@ -16,6 +16,7 @@ function Dashboard(){
     const [articles, setArticles] = useState([]);
     const [faculties, setFaculties] = useState([]);
     const [careers, setCareers] = useState([]);
+    const [views, setViews] = useState({});
   
     function reloadServices() {
       ArticlesService.getArticles().then((data) => setArticles(data));
@@ -23,10 +24,30 @@ function Dashboard(){
       FacultiesService.getFaculties().then((data) => setFaculties(data));
       CareersService.getCareers().then((data) => setCareers(data));
     }
-  
+
     useEffect(() => {
       reloadServices();
     }, []);
+
+  useEffect(() => {
+    const viewsPromises = articles.map((article) => ViewsService.getViewsById(article.id));
+    Promise.all(viewsPromises)
+      .then((viewsData) => {
+        const viewsObj = articles.reduce((acc, article, index) => {
+          acc[article.id] = viewsData[index];
+          return acc;
+        }, {});
+        setViews(viewsObj);
+      })
+      .catch((error) => {
+        console.log('Error fetching visitors:', error);
+        const viewsObj = articles.reduce((acc, article) => {
+          acc[article.id] = 0;
+          return acc;
+        }, {});
+        setViews(viewsObj);
+      });
+  }, [articles]);
 
      return (
     <div className="container">
@@ -51,23 +72,38 @@ function Dashboard(){
                         </option>
                     ))}
                 </select>
-                <div className="course">
-                  {articles.filter((article) => article.categoria === filtercategory).length === 0 ? (
-                    <h1>No hay artículos registrados</h1>
-                  ) : (
-                    articles
-                      .filter((article) => article.categoria === filtercategory)
-                      .map((article) => (
-                        <div key={article.id} className="box box1">
-                          <h3 className='box-text-bold name'>{article.nombre}</h3><br></br>
-                          <p className="box-text-bold data">Datos del Articulo</p><br></br>
-                          <p className='category-sub'><p className="box-text-bold">Categoria: </p>{article.categoria}</p>
-                          <p className='location'><p className="box-text-bold">Localización: </p>{article.ubicacion}</p>
-                          <p className='owner'><p className="box-text-bold">Dueño: </p>{article.dueno}</p>
-                        </div>
-                      ))
-                  )}
-                </div>
+                 <div className="course">
+              {articles.filter((article) => article.categoria === filtercategory).length === 0 ? (
+                <h1>No hay artículos registrados</h1>
+              ) : (
+                articles
+                  .filter((article) => article.categoria === filtercategory)
+                  .map((article) => (
+                    <div key={article.id} className="box box1">
+                      <h3 className="box-text-bold name">{article.nombre}</h3>
+                      <br></br>
+                      <p className="box-text-bold data">Datos del Articulo</p>
+                      <br></br>
+                      <p className="category-sub">
+                        <p className="box-text-bold">Categoria: </p>
+                        {article.categoria}
+                      </p>
+                      <p className="location">
+                        <p className="box-text-bold">Localización: </p>
+                        {article.ubicacion}
+                      </p>
+                      <p className="owner">
+                        <p className="box-text-bold">Dueño: </p>
+                        {article.dueno}
+                      </p>
+                      <p className="owner">
+                        <p className="box-text-bold">Cantidad de Visitas: </p>
+                        {views[article.id] || 0} {/* Obtener las vistas desde el estado views */}
+                      </p>
+                    </div>
+                  ))
+              )}
+            </div>
              </div>
         </section>
 
