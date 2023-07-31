@@ -98,7 +98,7 @@ function Dashboard(){
                         {article.dueno}
                       </p>
                       </section>
-                      <p className="owner">
+                      <p className="owner box_c">
                         <p className="box-text-bold">Cantidad de Visitas: </p>
                           <section className='C_V'>
                             {views[article.id] || 0} {/* Obtener las vistas desde el estado views */}
