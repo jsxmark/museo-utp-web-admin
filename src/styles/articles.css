@@ -15,31 +15,22 @@ Bermellón #FF312E
 
 .main-articles {
   position: relative;
+  background-color: #000000;
   width: 100%;
-  background-image: url("https://i.ibb.co/SyGLYyS/pexels-tomasz-filipek-1637438.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 20px;
 }
 /*-- estilos de background para Categories, Faculties --*/
 #bgimage1 {
   position: relative;
+  background-color: #000000;
   width: 100%;
-  background-image: url("https://i.ibb.co/BB6SkWq/lens-g84549e527-1920.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 20px;
 }
 
 #bgimage2 {
   position: relative;
+  background-color: #000000;
   width: 100%;
-  background-image: url("https://i.ibb.co/fd725wy/chip-g29e386b98-1920.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 20px;
 }
 
@@ -53,6 +44,7 @@ Bermellón #FF312E
 .table {
   height: 152vh;
   padding: 10px;
+  margin-top: 20px;
   background-color: #252525;
   backdrop-filter: blur(7px);
   box-shadow: 0 0.4rem 0.8rem #daa641;
@@ -121,6 +113,7 @@ Bermellón #FF312E
 #t_b {
   height: 94vh;
   padding: 10px;
+  margin-top: 20px;
   background-color: #252525;
   backdrop-filter: blur(7px);
   box-shadow: 0 0.4rem 0.8rem #daa641;
@@ -384,6 +377,14 @@ textarea:focus {
     width: 80vw;
     height: 50px;
     resize: none;
+  }
+
+  .tb_c{
+    height: 68em;
+  }
+
+  .tb_cf {
+    height: 9em;
   }
 }
 

@@ -61,7 +61,7 @@ function Careers() {
 
                 <SideBarResponsive />
                 
-                <main class="table" id='t_b'>
+                <main class="table tb_c" id='t_b'>
                     <section class="table_header" id='t_h'>
                         <h1>Lista de Carreras</h1>
                     </section>
@@ -95,7 +95,7 @@ function Careers() {
                         <h2>Agregar Carrera</h2>
                     </section>
 
-                    <section class="table_form" id='t_form'>
+                    <section class="table_form tb_cf" id='t_form'>
                         <form onSubmit={handleFromSubmit}>
                             <input
                                 className="article-input"

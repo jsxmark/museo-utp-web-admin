@@ -150,7 +150,7 @@ function Articles() {
                                             <div dangerouslySetInnerHTML={{ __html: article.descripcion }} />
                                             ) : (
                                             <div
-                                                id={`justi-${article.id}`}
+                                                className="justi "id={`justi-${article.id}`}
                                                 dangerouslySetInnerHTML={{
                                                 __html: article.descripcion.slice(0, 200) + "...",
                                                 }}
